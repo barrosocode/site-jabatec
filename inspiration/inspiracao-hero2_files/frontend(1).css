@@ -1,0 +1,230 @@
+/**
+ * Vime WhatsApp Button - Frontend Styles
+ */
+
+.vimewpp-button-wrapper {
+    display: inline-block;
+    width: 100%;
+}
+
+.vimewpp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.5;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.vimewpp-button:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.vimewpp-button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.vimewpp-button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.vimewpp-button-full-width {
+    width: 100%;
+}
+
+.vimewpp-button-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.vimewpp-button-icon svg {
+    display: block;
+    width: 1em;
+    height: 1em;
+}
+
+.vimewpp-button-icon-top-layout {
+    flex-direction: column;
+}
+
+.vimewpp-button-text {
+    display: inline-block;
+}
+
+/* Hover effects - applied via classes */
+.vimewpp-hover-move-up:hover {
+    transform: translateY(-3px);
+}
+
+.vimewpp-hover-move-down:hover {
+    transform: translateY(3px);
+}
+
+.vimewpp-hover-move-left:hover {
+    transform: translateX(-3px);
+}
+
+.vimewpp-hover-move-right:hover {
+    transform: translateX(3px);
+}
+
+.vimewpp-hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.vimewpp-hover-scale-down:hover {
+    transform: scale(0.95);
+}
+
+.vimewpp-hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+.vimewpp-hover-rotate-reverse:hover {
+    transform: rotate(-5deg);
+}
+
+.vimewpp-hover-skew:hover {
+    transform: skew(-5deg, 0deg);
+}
+
+.vimewpp-hover-grow-shadow:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+@media (hover: none) {
+    .vimewpp-button:active {
+        transform: scale(0.98);
+    }
+}
+
+@media (max-width: 767px) {
+    .vimewpp-button {
+        min-height: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vimewpp-button {
+        transition: none;
+    }
+    
+    .vimewpp-button:hover {
+        transform: none;
+    }
+    
+    .vimewpp-button:active {
+        transform: none;
+    }
+}
+
+.rtl .vimewpp-button-icon-left {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+.rtl .vimewpp-button-icon-right {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+@supports (aspect-ratio: 1) {
+    .vimewpp-button-icon {
+        aspect-ratio: 1;
+    }
+}
+
+/* Split Layout Styles */
+.vimewpp-button-split {
+    padding: 0 !important;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: stretch;
+}
+
+.vimewpp-button-split .vimewpp-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background-color: #128c7e;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.vimewpp-button-split .vimewpp-icon-wrapper svg {
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+}
+
+.vimewpp-button-split .vimewpp-text-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    flex: 1;
+}
+
+.vimewpp-button-split.vimewpp-button-full-width {
+    display: flex;
+    width: 100%;
+}
+
+.vimewpp-button-split.vimewpp-button-full-width .vimewpp-text-wrapper {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Split Layout RTL Support */
+.rtl .vimewpp-button-split {
+    flex-direction: row-reverse;
+}
+
+/* Split Layout Icon Hover Effects */
+.vimewpp-button-split.vimewpp-hover-scale:hover .vimewpp-icon-wrapper {
+    transform: scale(1.1);
+}
+
+.vimewpp-button-split.vimewpp-hover-rotate:hover .vimewpp-icon-wrapper {
+    transform: rotate(360deg);
+}
+
+.vimewpp-button-split .vimewpp-icon-wrapper {
+    transition: transform 0.3s ease;
+}
+
+@media (hover: none) {
+    .vimewpp-button-split:active .vimewpp-icon-wrapper {
+        transform: scale(0.95);
+    }
+}
+
+/* Split Layout Responsive */
+@media (max-width: 767px) {
+    .vimewpp-button-split .vimewpp-icon-wrapper {
+        padding: 10px;
+    }
+    
+    .vimewpp-button-split .vimewpp-text-wrapper {
+        padding: 10px 16px;
+    }
+}
+
+@media print {
+    .vimewpp-button-wrapper {
+        display: none;
+    }
+}

@@ -1,0 +1,839 @@
+/**
+ * Estilos do Frontend - VIME Login & Register Widget
+ *
+ * @package VimeDigitalDashboard
+ * @since 2.3.0
+ */
+
+/* Container Principal */
+.vime-login-register {
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 40px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estado Logado */
+.vime-login-register.vime-logged-in {
+    text-align: center;
+}
+
+.vime-login-register.vime-logged-in p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.vime-logout-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #dc3232;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.vime-logout-link:hover {
+    background: #a02222;
+}
+
+/* Abas */
+.vime-tabs {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.vime-tab-button {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #666666;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.vime-tab-button:hover {
+    color: #333333;
+    background: #f5f5f5;
+}
+
+.vime-tab-button.active {
+    color: #000000;
+    border-bottom-color: #000000;
+}
+
+.vime-tab-button:focus {
+    outline: 2px solid #3498db;
+    outline-offset: -2px;
+}
+
+/* Painéis de Abas */
+.vime-tab-panel {
+    display: none;
+}
+
+.vime-tab-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Títulos e Subtítulos */
+.vime-form-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: #000000;
+}
+
+.vime-form-subtitle {
+    font-size: 14px;
+    color: #666666;
+    margin: 0 0 25px;
+    line-height: 1.5;
+}
+
+/* Campos do Formulário */
+.vime-form-field {
+    margin-bottom: 20px;
+}
+
+.vime-form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.vime-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.vime-form-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #000000;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.vime-form-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.vime-form-input::placeholder {
+    color: #999999;
+}
+
+/* Ícones dos Campos */
+.vime-input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999999;
+    pointer-events: none;
+    z-index: 1;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vime-input-icon i,
+.vime-input-icon svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+/* Mensagens de erro dos campos */
+.field-error {
+    display: block;
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.vime-form-input.error {
+    border-color: #dc3545;
+}
+
+.vime-form-input.error:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.vime-input-icon + .vime-form-input,
+.vime-login-register .vime-input-icon + .vime-form-input,
+.elementor-widget .vime-input-icon + input {
+    padding-left: 45px !important;
+}
+
+/* Ajuste para campos com ícone e toggle de senha */
+.vime-input-icon + .vime-form-input.vime-password-input,
+.vime-login-register .vime-input-icon + .vime-password-input {
+    padding-left: 45px !important;
+    padding-right: 50px !important;
+}
+
+/* Garantir padding-right em todos os campos de senha */
+.vime-form-input.vime-password-input {
+    padding-right: 50px !important;
+}
+
+/* Toggle de Senha */
+.vime-password-toggle,
+.vime-login-register .vime-password-toggle,
+.elementor-widget .vime-password-toggle,
+button.vime-password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #999 !important;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0;
+    min-width: 30px;
+    min-height: 30px;
+    border-radius: 0 !important;
+    transition: color 0.3s ease, opacity 0.2s ease;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.vime-input-wrapper:hover .vime-password-toggle,
+.vime-input-wrapper:focus-within .vime-password-toggle {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.vime-password-toggle:hover {
+    color: #555 !important;
+    background: transparent !important;
+}
+
+.vime-password-toggle:focus {
+    outline: none;
+    background: transparent !important;
+}
+
+/* Ícones do toggle */
+.vime-password-show,
+.vime-password-hide {
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.vime-password-show svg,
+.vime-password-hide svg,
+.vime-password-show i,
+.vime-password-hide i {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+/* Estado inicial - esconder o ícone de ocultar */
+.vime-password-hide {
+    display: none !important;
+}
+
+/* Quando a senha estiver visível — manter toggle aparente */
+.vime-password-toggle.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.vime-password-toggle.active .vime-password-show {
+    display: none !important;
+}
+
+.vime-password-toggle.active .vime-password-hide {
+    display: flex !important;
+}
+
+/* Campo de Token */
+.vime-token-input {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 10px;
+    font-weight: 600;
+}
+
+/* Campos Personalizados */
+.vime-field-width-50 {
+    width: calc(50% - 10px);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.vime-field-width-33 {
+    width: calc(33.333% - 10px);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.vime-field-width-66 {
+    width: calc(66.666% - 10px);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.vime-field-width-100 {
+    width: 100%;
+}
+
+/* Ajuste de espaçamento para campos lado a lado */
+.vime-field-width-50:nth-child(odd) {
+    margin-right: 20px;
+}
+
+.vime-field-width-33:not(:nth-child(3n)) {
+    margin-right: 15px;
+}
+
+.vime-field-width-66 + .vime-field-width-33 {
+    margin-left: 0;
+}
+
+/* Textarea personalizada */
+.vime-form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Select personalizado */
+.vime-form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    padding-right: 45px;
+}
+
+/* Campo obrigatório */
+.vime-required {
+    color: #dc3232;
+    margin-left: 4px;
+}
+
+/* Indicador de Força da Senha */
+.vime-password-strength {
+    margin-top: 8px;
+}
+
+.vime-password-strength-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.vime-password-strength-fill {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    border-radius: 3px;
+}
+
+.vime-password-strength-fill.weak {
+    width: 25%;
+    background-color: #dc3232;
+}
+
+.vime-password-strength-fill.medium {
+    width: 50%;
+    background-color: #ffb900;
+}
+
+.vime-password-strength-fill.strong {
+    width: 75%;
+    background-color: #00a0d2;
+}
+
+.vime-password-strength-fill.very-strong {
+    width: 100%;
+    background-color: #46b450;
+}
+
+.vime-password-strength-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666666;
+}
+
+/* Checkbox Lembrar-me */
+.vime-remember-field {
+    margin-bottom: 25px;
+}
+
+.vime-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333333;
+}
+
+.vime-checkbox-label input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Botões */
+.vime-form-button {
+    width: 100%;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vime-form-button:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vime-form-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vime-form-button:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.vime-form-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.vime-form-button.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    left: 50%;
+    top: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Links */
+.vime-form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.vime-form-link {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.vime-form-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.vime-form-link:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Mensagens */
+.vime-message-area {
+    margin-bottom: 20px;
+}
+
+.vime-message {
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    border: 1px solid;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vime-message.success {
+    color: #46b450;
+    background: #ecf7ed;
+    border-color: #46b450;
+}
+
+.vime-message.error {
+    color: #dc3232;
+    background: #fbeaea;
+    border-color: #dc3232;
+}
+
+.vime-message.info {
+    color: #00a0d2;
+    background: #e5f5fa;
+    border-color: #00a0d2;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .vime-login-register {
+        padding: 30px 20px;
+    }
+    
+    .vime-form-title {
+        font-size: 20px;
+    }
+    
+    .vime-tab-button {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .vime-form-button {
+        font-size: 14px;
+    }
+    
+    .vime-token-input {
+        font-size: 20px;
+        letter-spacing: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vime-login-register {
+        padding: 20px 15px;
+    }
+    
+    .vime-tabs {
+        margin-bottom: 20px;
+    }
+    
+    .vime-form-field {
+        margin-bottom: 15px;
+    }
+    
+    .vime-form-input {
+        padding: 10px 12px;
+    }
+    
+    .vime-input-icon + .vime-form-input {
+        padding-left: 40px;
+    }
+    
+    .vime-input-icon + .vime-form-input.vime-password-input {
+        padding-right: 40px;
+    }
+    
+    .vime-password-toggle {
+        right: 10px;
+    }
+    
+    /* Campos personalizados responsivos */
+    .vime-field-width-50,
+    .vime-field-width-33,
+    .vime-field-width-66 {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* Acessibilidade */
+.vime-login-register *:focus-visible {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.vime-login-register [aria-hidden="true"]:not(svg):not(i):not(span) {
+    display: none !important;
+}
+
+/* Modo Escuro (Detecção Automática) */
+@media (prefers-color-scheme: dark) {
+    .vime-login-register {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+    
+    .vime-form-title {
+        color: #ffffff;
+    }
+    
+    .vime-form-subtitle {
+        color: #cccccc;
+    }
+    
+    .vime-tab-button {
+        color: #cccccc;
+    }
+    
+    .vime-tab-button:hover {
+        color: #ffffff;
+        background: #2a2a2a;
+    }
+    
+    .vime-tab-button.active {
+        color: #ffffff;
+        border-bottom-color: #3498db;
+    }
+    
+    .vime-form-label {
+        color: #cccccc;
+    }
+    
+    .vime-form-input {
+        background: #2a2a2a;
+        color: #ffffff;
+        border-color: #444444;
+    }
+    
+    .vime-form-input:focus {
+        border-color: #3498db;
+        background: #333333;
+    }
+    
+    .vime-form-input::placeholder {
+        color: #666666;
+    }
+    
+    .vime-input-icon {
+        color: #666666;
+    }
+    
+    .vime-checkbox-label {
+        color: #cccccc;
+    }
+    
+    .vime-message.success {
+        background: #1b3a1e;
+    }
+    
+    .vime-message.error {
+        background: #3a1b1b;
+    }
+    
+    .vime-password-toggle {
+        color: #999999;
+    }
+    
+    .vime-password-toggle:hover {
+        color: #cccccc;
+    }
+    
+    .vime-form-select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ccc'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    }
+    
+    .vime-required {
+        color: #ff6b6b;
+    }
+}
+
+/**
+ * Estilos do Widget de Logout VIME
+ *
+ * @since 2.3.0
+ */
+
+/* Container do Widget de Logout */
+.vime-logout-wrapper {
+    display: inline-block;
+}
+
+/* Botão de Logout */
+.vime-logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #DC2626;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vime-logout-button:hover {
+    background-color: #B91C1C;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    text-decoration: none;
+}
+
+.vime-logout-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+.vime-logout-button:focus {
+    outline: 2px solid #DC2626;
+    outline-offset: 2px;
+}
+
+/* Ícones do Botão de Logout */
+.vime-logout-button .icon-left,
+.vime-logout-button .icon-right {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.vime-logout-button .icon-left svg,
+.vime-logout-button .icon-right svg,
+.vime-logout-button .icon-left i,
+.vime-logout-button .icon-right i {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+/* Texto do Botão */
+.vime-logout-button .button-text {
+    display: inline-block;
+}
+
+/* Efeito de onda ao clicar */
+.vime-logout-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.vime-logout-button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Responsividade do Widget de Logout */
+@media (max-width: 768px) {
+    .vime-logout-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .vime-logout-button .icon-left svg,
+    .vime-logout-button .icon-right svg,
+    .vime-logout-button .icon-left i,
+    .vime-logout-button .icon-right i {
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vime-logout-button {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+
+/* Modo Escuro para Widget de Logout */
+@media (prefers-color-scheme: dark) {
+    .vime-logout-button {
+        background-color: #EF4444;
+        border-color: #DC2626;
+    }
+    
+    .vime-logout-button:hover {
+        background-color: #DC2626;
+        border-color: #B91C1C;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+    
+    .vime-logout-button:focus {
+        outline-color: #EF4444;
+    }
+}

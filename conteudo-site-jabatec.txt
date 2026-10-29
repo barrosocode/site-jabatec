@@ -1,0 +1,104 @@
+# 1. Hero Section (Dobra Superior)
+*(Visual sugerido: Fundo escuro com elementos gráficos sutis remetendo a conexões de rede ou fluxos de dados. Um destaque visual para a palavra "Impacto" ou "Sociedade".)*
+
+**Headline (Título):** 
+Transformamos ideias que resolvem dores da sociedade em tecnologia escalável.
+
+**Subheadline (Subtítulo):** 
+Fazemos a ponte entre o propósito empreendedor e a realidade. Unimos modelagem de negócios, consultoria estratégica e engenharia de software para criar soluções B2B, B2C e B2G que geram impacto real e atendem às exigências do mercado.
+
+**CTAs (Botões):**
+[ Primário: Apresentar meu projeto ]  [ Secundário: Conhecer nossas soluções ]
+
+---
+
+# 2. Prova Social e Portfólio (O Carrossel "Livro 3D")
+*(Visual: A faixa de logos de parceiros/clientes no topo. Abaixo, o carrossel interativo. Selecionei 3 cases que mostram a versatilidade de vocês: Impacto Social/EdTech, Compliance/LegalTech e Experiência do Usuário/Fintech).*
+
+**Título da Seção:** 
+Do papel à realidade: cases que geram impacto e solucionam dores complexas.
+
+* **Card 1: AIVI (EdTech & IA)**
+  * **O Desafio:** Transformar uma metodologia científica de apoio a alunos neurodivergentes em uma ferramenta escalável para redes de ensino cumprirem a legislação de assistência especial.
+  * **A Solução Jabatec:** Desenvolvemos uma plataforma integrada com Inteligência Artificial que automatiza o levantamento de necessidades e adaptação de atividades, validando o processo com confiabilidade para os professores.
+  * **O Resultado:** Sistema em implantação na rede municipal de São Gonçalo do Amarante (RN), integrando o ecossistema euGov e removendo barreiras de aprendizado.
+
+* **Card 2: PGRS (LegalTech & Compliance)**
+  * **O Desafio:** Antecipar a obrigatoriedade legal de 2027 que exige o Plano de Gerenciamento de Resíduos Sólidos para todas as empresas, evitando inconformidades.
+  * **A Solução Jabatec:** Criamos um sistema que automatiza a geração do plano, utilizando IA especialista na legislação para validar os dados e conectando o empresário ao profissional habilitado.
+  * **O Resultado:** Um banco de dados robusto que subsidia decisões precisas e garante compliance legal automático para as empresas.
+
+* **Card 3: PayEvents (Fintech & UX)**
+  * **O Desafio:** Criar um ecossistema completo para organizadores de corridas de rua e atletas, com foco em uma experiência de compra e pagamento impecável.
+  * **A Solução Jabatec:** Atuamos decisivamente no desenho da UX e no fluxo de pagamento, desenvolvendo uma plataforma robusta de gestão e vendas.
+  * **O Resultado:** Sistema processando alto volume de transações com zero falhas, garantindo confiabilidade total para organizadores e atletas.
+
+*(Nota: Os cases Akili, Tatour e Servclub podem ficar em uma grade estática logo abaixo do carrossel, com links para "Ler mais").*
+
+**Seção de Depoimentos:**
+*"A Jabatec não apenas codificou nossa ideia; eles estruturaram o negócio, enxergaram oportunidades B2G que não tínhamos e entregaram uma plataforma de IA que está transformando a educação pública."* 
+— **[Nome], Founder da AIVI/Akili**
+
+---
+
+# 3. Conteúdo Técnico e Metodologia
+*(Visual: Layout em Grid. Ícones minimalistas para as stacks. Um loop infinito para a metodologia).*
+
+**Título da Seção:** 
+Mais que código: entregamos negócios estruturados e prontos para o mercado.
+
+**Subtítulo:** 
+Na Jabatec, nenhum código é escrito sem que a ideia esteja validada. Atuamos com filosofia Lean e metodologias ágeis para garantir que o escopo seja desenhado, validado e entregue de forma granular.
+
+### Nossas Expertises
+* **Consultoria Estratégica e Plano de Negócios:** Modelagem de negócios, benchmarking e Design Thinking para validar a viabilidade e o potencial de escala (B2B, B2C, B2G).
+* **Desenvolvimento de Software Sob Medida:** APIs robustas, aplicações Web e Mobile com foco em performance e segurança.
+* **Expertise em IA e Automação:** Inteligência Artificial aplicada para validação de processos, análise de dados e automação de tarefas complexas.
+* **Implantação e Escala:** Suporte na implementação, adequação à LGPD e preparação para políticas públicas.
+
+### A Stack que Impulsiona seus Projetos
+*(Visual: Ícones em monocromia que ganham a cor original da tecnologia no hover)*
+* **Backend:** PHP, Laravel, Python, FastAPI
+* **Frontend & Mobile:** TypeScript, JavaScript, Next.js, React, React Native, Expo
+* **Infra & DevOps:** Nginx, Docker
+
+---
+
+# 4. Elementos Humanos (O Time)
+*(Visual: Fotos reais dos 5 membros, com um design clean. Abaixo de cada foto, o "superpoder" da pessoa, destacando a multidisciplinaridade).*
+
+**Título:** 
+Uma task-force multidisciplinar para o seu projeto.
+
+**Texto:** 
+Tecnologia, negócios e finanças precisam andar juntos. Nosso time sênior combina visões complementares para garantir que seu projeto seja tecnicamente brilhante, financeiramente viável e estrategicamente sólido.
+
+* **[Nome do CEO], CEO:** Especialista em Negócios e Visão de Impacto.
+* **[Nome do GP], Gerente de Projetos:** Especialista em Gestão Ágil, Projetos B2G e Compliance (LGPD).
+* **[Nome do CFO], CFO:** Especialista em Estruturação Financeira e Viabilidade Econômica.
+* **[Nome do Dev Sênior], Dev Sênior:** Especialista em Soluções com IA e Segurança Digital.
+* **[Nome do Dev Pleno], Dev Pleno:** Especialista em Arquitetura de Soluções (Transformando dores em algoritmos).
+
+---
+
+# 5. Seção de Contato (Fechamento)
+*(Visual: Fundo com um leve gradiente. Um formulário centralizado, muito limpo, ou um chatbot amigável no canto inferior direito. A promessa das 48h deve estar em destaque).*
+
+**Título:** 
+Tem uma ideia que pode mudar o mercado ou a sociedade?
+
+**Subtítulo:** 
+Conte-nos brevemente sobre o seu projeto. Nossa equipe irá analisar e retornaremos em até 48 horas para agendar um diagnóstico.
+
+**Formulário (Sugestão de campos):**
+* Nome completo
+* E-mail corporativo / WhatsApp
+* **Qual é a dor que o seu projeto resolve?** (Campo de texto aberto / textarea)
+* [ Botão: Enviar meu projeto ]
+
+**Aviso de Confiança (Logo abaixo do botão):**
+🔒 *Seus dados estão seguros. Retornamos em até 48h úteis.*
+
+**Informações Diretas:**
+📧 [contato@jabatec.com.br]
+🔗 [LinkedIn da Jabatec]
