@@ -6,14 +6,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "start": "node --env-file=.env ./dist/server/entry.mjs"
+    "start": "astro preview"
   },
   "engines": {
     "node": "18.20.8 || ^20.3.0 || >=22.0.0"
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.5",
-    "@emailjs/nodejs": "^5.0.2",
-    "astro": "^5.18.2"
+    "@astrojs/vercel": "8.2.11",
+    "@emailjs/nodejs": "5.0.2",
+    "astro": "5.18.2"
   }
 }
