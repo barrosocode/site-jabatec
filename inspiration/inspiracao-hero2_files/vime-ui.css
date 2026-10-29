@@ -1,0 +1,48 @@
+/**
+ * VIME UI Icons
+ *
+ * Font-face e classes de ícones para a família VIME UI.
+ * Gere os font files no IcoMoon (https://icomoon.io/app) e substitua
+ * os arquivos em fonts/ e atualize as classes abaixo.
+ *
+ * @package VimeDigitalDashboard
+ * @since 2.9.3
+ */
+
+@font-face {
+    font-family: 'vime-ui';
+    src: url('fonts/vime-ui.woff2') format('woff2'),
+         url('fonts/vime-ui.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+[class^="vime-ui-"],
+[class*=" vime-ui-"] {
+    font-family: 'vime-ui' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Adicione os ícones abaixo ao gerar a fonte no IcoMoon.
+   Exemplo:
+
+   .vime-ui-arrow-right::before { content: '\e900'; }
+   .vime-ui-arrow-left::before { content: '\e901'; }
+   .vime-ui-close::before { content: '\e902'; }
+   .vime-ui-menu::before { content: '\e903'; }
+   .vime-ui-search::before { content: '\e904'; }
+   .vime-ui-settings::before { content: '\e905'; }
+   .vime-ui-user::before { content: '\e906'; }
+   .vime-ui-check::before { content: '\e907'; }
+   .vime-ui-star::before { content: '\e908'; }
+   .vime-ui-heart::before { content: '\e909'; }
+   ========================================================================== */

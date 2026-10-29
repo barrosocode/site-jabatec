@@ -1,0 +1,48 @@
+/**
+ * VIME Social Icons
+ *
+ * Font-face e classes de ícones para a família VIME Social.
+ * Gere os font files no IcoMoon (https://icomoon.io/app) e substitua
+ * os arquivos em fonts/ e atualize as classes abaixo.
+ *
+ * @package VimeDigitalDashboard
+ * @since 2.9.3
+ */
+
+@font-face {
+    font-family: 'vime-social';
+    src: url('fonts/vime-social.woff2') format('woff2'),
+         url('fonts/vime-social.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+[class^="vime-social-"],
+[class*=" vime-social-"] {
+    font-family: 'vime-social' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Adicione os ícones abaixo ao gerar a fonte no IcoMoon.
+   Exemplo:
+
+   .vime-social-instagram::before { content: '\e900'; }
+   .vime-social-facebook::before { content: '\e901'; }
+   .vime-social-twitter::before { content: '\e902'; }
+   .vime-social-linkedin::before { content: '\e903'; }
+   .vime-social-youtube::before { content: '\e904'; }
+   .vime-social-tiktok::before { content: '\e905'; }
+   .vime-social-whatsapp::before { content: '\e906'; }
+   .vime-social-telegram::before { content: '\e907'; }
+   .vime-social-pinterest::before { content: '\e908'; }
+   .vime-social-threads::before { content: '\e909'; }
+   ========================================================================== */

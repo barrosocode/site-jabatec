@@ -1,0 +1,882 @@
+<!doctype html>
+
+<html class="dark" lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="web_standard" name="shell-type" />
+        <title>Jabatec // Deep Tech Innovation</title>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet" />
+        <style>
+            @layer base {
+                html,
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                body {
+                    overscroll-behavior: none;
+                }
+                main > :first-child {
+                    margin-top: 0 !important;
+                }
+                main > :last-child {
+                    margin-bottom: 0 !important;
+                }
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "surface-variant": "#31353e",
+                            "on-secondary": "#181d8c",
+                            "on-secondary-fixed": "#00006e",
+                            "primary-fixed-dim": "#00ded0",
+                            "accent-turquoise": "#00FFEF",
+                            secondary: "#bfc2ff",
+                            "on-tertiary-container": "#5d637e",
+                            "background-surface": "#0A1128",
+                            "tertiary-fixed": "#dce1ff",
+                            "error-container": "#93000a",
+                            "surface-container": "#1c2028",
+                            "surface-container-high": "#262a33",
+                            "tertiary-container": "#dce1ff",
+                            "surface-container-highest": "#31353e",
+                            "brand-navy": "#000080",
+                            background: "#10131b",
+                            "on-tertiary": "#292f48",
+                            "tertiary-fixed-dim": "#bfc5e4",
+                            "text-secondary": "#94A3B8",
+                            "surface-tint": "#00ded0",
+                            "on-primary-fixed": "#00201d",
+                            "surface-container-low": "#181c24",
+                            error: "#ffb4ab",
+                            "on-primary": "#003733",
+                            "outline-variant": "#3a4a48",
+                            "on-secondary-container": "#a9afff",
+                            "secondary-fixed-dim": "#bfc2ff",
+                            "on-primary-container": "#007169",
+                            "primary-container": "#00fded",
+                            "surface-dim": "#10131b",
+                            tertiary: "#ffffff",
+                            "on-surface": "#e0e2ee",
+                            "on-surface-variant": "#b9cac7",
+                            "inverse-surface": "#e0e2ee",
+                            "on-primary-fixed-variant": "#00504a",
+                            "background-deep": "#02040A",
+                            "secondary-fixed": "#e0e0ff",
+                            "secondary-container": "#3239a3",
+                            "primary-fixed": "#00fded",
+                            "on-tertiary-fixed": "#141a32",
+                            "on-error": "#690005",
+                            surface: "#10131b",
+                            "border-subtle": "rgba(148, 163, 184, 0.15)",
+                            "text-primary": "#F8FAFC",
+                            "accent-turquoise-dim": "rgba(0, 255, 239, 0.1)",
+                            "on-error-container": "#ffdad6",
+                            "inverse-on-surface": "#2d3039",
+                            "on-background": "#e0e2ee",
+                            "on-secondary-fixed-variant": "#3239a3",
+                            "surface-container-lowest": "#0a0e16",
+                            primary: "#ffffff",
+                            "on-tertiary-fixed-variant": "#3f465f",
+                            outline: "#839491",
+                            "inverse-primary": "#006a63",
+                            "surface-bright": "#353942",
+                        },
+                        borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"},
+                        spacing: {"margin-mobile": "1rem", xxl: "48px", "space-xl": "2rem", gutter: "1.5rem", "space-sm": "0.5rem", "space-2xl": "3rem", xl: "32px", "space-md": "1rem", sm: "8px", md: "16px", "space-lg": "1.5rem", "margin-desktop": "3rem", xs: "4px", margin: "2rem", "space-xs": "0.25rem", "gutter-sm": "1rem"},
+                        fontFamily: {"body-sm": ["Inter"], "headline-xl-mobile": ["Geist"], "label-sm": ["JetBrains Mono"], "mono-data": ["JetBrains Mono"], "headline-sm": ["Geist"], "body-lg": ["Inter"], "headline-xl": ["Geist"], "headline-md": ["Geist"], "label-md": ["Inter"], h1: ["Geist"], h2: ["Geist"], "mono-data-lg": ["JetBrains Mono"], "headline-lg": ["Geist"], "body-md": ["Inter"], "headline-lg-mobile": ["Geist"]},
+                        fontSize: {
+                            "body-sm": ["0.875rem", {lineHeight: "1.5", fontWeight: "400"}],
+                            "headline-xl-mobile": ["2.25rem", {lineHeight: "1.15", letterSpacing: "-0.02em", fontWeight: "700"}],
+                            "label-sm": ["0.75rem", {lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "500"}],
+                            "mono-data": ["0.875rem", {lineHeight: "1.4", letterSpacing: "0.02em", fontWeight: "500"}],
+                            "headline-sm": ["1.25rem", {lineHeight: "1.4", fontWeight: "600"}],
+                            "body-lg": ["1.125rem", {lineHeight: "1.6", fontWeight: "400"}],
+                            "headline-xl": ["3.5rem", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}],
+                            "headline-md": ["1.5rem", {lineHeight: "1.3", letterSpacing: "-0.01em", fontWeight: "600"}],
+                            "label-md": ["0.875rem", {lineHeight: "1.2", letterSpacing: "0.01em", fontWeight: "600"}],
+                            h1: ["3.5rem", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}],
+                            h2: ["2.25rem", {lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600"}],
+                            "mono-data-lg": ["1.25rem", {lineHeight: "1.3", fontWeight: "600"}],
+                            "headline-lg": ["2.25rem", {lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600"}],
+                            "body-md": ["1rem", {lineHeight: "1.6", fontWeight: "400"}],
+                            "headline-lg-mobile": ["1.75rem", {lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: "600"}],
+                        },
+                    },
+                },
+            };
+        </script>
+    </head>
+    <body class="bg-background-deep font-body-md text-on-surface antialiased selection:bg-accent-turquoise selection:text-background-deep min-h-screen">
+        <header class="fixed top-0 left-0 right-0 w-full z-50 bg-background-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+            <div class="h-16 max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin-desktop flex items-center justify-between">
+                <div class="flex items-center gap-space-lg">
+                    <a class="flex items-center gap-space-xs tracking-tight font-headline-sm text-headline-sm text-text-primary" data-path="portfolio-e-cases" href="#"><span class="text-primary font-bold">JABATEC</span><span class="font-label-sm text-label-sm text-accent-turquoise ml-space-xs font-semibold">//SYS</span></a>
+                    <div class="hidden xl:flex items-center gap-space-xs py-space-xs px-space-sm bg-surface-container-lowest rounded border border-border-subtle"><span class="w-2 h-2 rounded-full bg-accent-turquoise animate-pulse"></span><span class="font-label-sm text-label-sm text-accent-turquoise">SYSTEM: ONLINE // v4.0-STABLE</span></div>
+                </div>
+                <nav class="hidden lg:flex items-center gap-space-md font-label-md text-label-md" data-active-classes="bg-surface-container text-accent-turquoise font-semibold rounded-lg"><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="portfolio-e-cases" href="#">Portfólio & Cases</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="metodologia" href="#">Metodologia</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="stack" href="#">Stack</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="time" href="#">Time</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="terminal-contato" href="#">Terminal Contato</a></nav>
+                <div class="flex items-center gap-space-md">
+                    <a class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary-fixed font-label-md text-label-md px-space-md py-space-xs rounded font-semibold hover:bg-accent-turquoise transition-all shadow-[0_0_20px_rgba(0,255,239,0.2)]" data-path="apresentar-projeto" href="#">Apresentar Projeto</a>
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+                </div>
+            </div>
+        </header>
+        <main class="w-full pt-16 bg-background-deep">
+            <div class="flex flex-col w-full text-on-surface">
+                <!-- ========================================================================= -->
+                <!-- 01. HERO SECTION & TELEMETRY HUD -->
+                <!-- ========================================================================= -->
+                <section class="relative w-full max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin-desktop pt-space-xl pb-space-2xl overflow-hidden">
+                    <!-- Atmospheric subtle gradients -->
+                    <div class="absolute top-0 right-1/4 w-[480px] h-[480px] bg-accent-turquoise/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+                    <div class="absolute -top-10 left-10 w-[360px] h-[360px] bg-secondary-container/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+                        <!-- Left Column: Copy & CTAs -->
+                        <div class="lg:col-span-7 flex flex-col gap-space-md">
+                            <!-- System Status Chip -->
+                            <div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-background-surface rounded border border-border-subtle self-start shadow-sm">
+                                <span class="w-2 h-2 rounded-full bg-accent-turquoise animate-ping"></span>
+                                <span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider font-mono-data"> [ JABATEC_CORE <span class="text-accent-turquoise">//</span> RUNTIME_PRECISION_ENGINE ] </span>
+                            </div>
+                            <!-- Main Title -->
+                            <h1 class="font-headline-xl text-headline-xl text-text-primary tracking-tight font-bold">Transformamos ideias que resolvem dores da <span class="text-accent-turquoise drop-shadow-[0_0_18px_rgba(0,255,239,0.35)]">sociedade</span> em <span class="text-accent-turquoise drop-shadow-[0_0_18px_rgba(0,255,239,0.35)]">tecnologia escalável</span>.</h1>
+                            <!-- Subheadline -->
+                            <p class="font-body-lg text-body-lg text-text-secondary max-w-xl font-normal">Fazemos a ponte entre o propósito empreendedor e a realidade. Unimos modelagem de negócios, consultoria estratégica e engenharia de software para criar soluções B2B, B2C e B2G que geram impacto real e atendem às exigências do mercado.</p>
+                            <!-- CTA Action Buttons -->
+                            <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+                                <a class="inline-flex items-center justify-center bg-accent-turquoise text-background-deep font-label-md text-label-md px-space-lg py-space-sm rounded font-semibold transition-all duration-300 shadow-[0_0_24px_rgba(0,255,239,0.3)] hover:shadow-[0_0_36px_rgba(0,255,239,0.5)] hover:-translate-y-0.5" href="#intake">
+                                    <span class="material-symbols-outlined text-[18px] mr-space-xs">terminal</span>
+                                    Apresentar meu projeto
+                                </a>
+                                <a class="inline-flex items-center justify-center bg-transparent border border-border-subtle text-text-primary font-label-md text-label-md px-space-lg py-space-sm rounded font-medium hover:border-accent-turquoise hover:text-accent-turquoise hover:bg-background-surface/60 transition-all duration-200" href="#cases">
+                                    Conhecer nossas soluções
+                                    <span class="material-symbols-outlined text-[16px] ml-space-xs">arrow_forward</span>
+                                </a>
+                            </div>
+                            <div class="flex items-center gap-space-md pt-space-xs text-text-secondary font-label-sm text-label-sm font-mono-data">
+                                <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accent-turquoise"></span> SLA 99.98% Garantido</span>
+                                <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accent-turquoise"></span> Auditoria LGPD Pronta</span>
+                                <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accent-turquoise"></span> Stack Cloud-Native</span>
+                            </div>
+                        </div>
+                        <!-- Right Column: Interactive Console HUD -->
+                        <div class="lg:col-span-5 w-full">
+                            <div class="relative bg-background-surface rounded-xl border border-border-subtle p-space-md shadow-2xl backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-accent-turquoise/40">
+                                <!-- Terminal Header -->
+                                <div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-subtle">
+                                    <div class="flex items-center gap-space-xs">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-error/70"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed/50"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-accent-turquoise/70"></span>
+                                        <span class="font-mono-data text-label-sm text-text-secondary ml-space-xs">jabatec-core@edge-sa-east-1</span>
+                                    </div>
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise/10 px-space-xs py-0.5 rounded text-[11px]">RUNNING</span>
+                                </div>
+                                <!-- Console Terminal Simulation Body -->
+                                <div class="flex flex-col gap-space-xs font-mono-data text-body-sm leading-relaxed text-text-secondary">
+                                    <div class="flex items-center gap-space-xs text-text-primary">
+                                        <span class="text-accent-turquoise select-none">$</span>
+                                        <span>jabatec init --model enterprise-lean --target b2g-b2b</span>
+                                    </div>
+                                    <div class="text-[13px] text-text-secondary/70">Resolving dependencies across 14 sovereign microservices...</div>
+                                    <div class="flex items-start gap-space-xs text-text-primary text-[13px] pt-space-xs">
+                                        <span class="text-accent-turquoise font-bold">✔</span>
+                                        <span>Discovery & Unit Economics: <span class="text-accent-turquoise font-semibold">Validated (48h SLA)</span></span>
+                                    </div>
+                                    <div class="flex items-start gap-space-xs text-text-primary text-[13px]">
+                                        <span class="text-accent-turquoise font-bold">✔</span>
+                                        <span>Compliance LGPD & B2G euGov: <span class="text-accent-turquoise font-semibold">Homologated</span></span>
+                                    </div>
+                                    <div class="flex items-start gap-space-xs text-text-primary text-[13px]">
+                                        <span class="text-accent-turquoise font-bold">✔</span>
+                                        <span>Microservices Latency: <span class="text-accent-turquoise font-semibold"><12ms SLA [EDGE-SAO]</span></span>
+                                    </div>
+                                    <div class="flex items-start gap-space-xs text-text-primary text-[13px]">
+                                        <span class="text-accent-turquoise font-bold">✔</span>
+                                        <span>Status: <span class="text-primary font-semibold">System deployed across B2G & B2B clusters</span></span>
+                                    </div>
+                                    <!-- Visual Telemetry Mini-Graph inside terminal -->
+                                    <div class="mt-space-sm p-space-xs bg-surface-container-lowest/80 rounded border border-border-subtle flex flex-col gap-1">
+                                        <div class="flex justify-between text-[11px] text-text-secondary">
+                                            <span>THROUGHPUT_MONITOR</span>
+                                            <span class="text-accent-turquoise">12,480 req/s • ZERO LOSS</span>
+                                        </div>
+                                        <div class="w-full bg-surface-variant/30 h-1.5 rounded-full overflow-hidden flex">
+                                            <div class="bg-accent-turquoise h-full w-[84%] transition-all duration-700"></div>
+                                            <div class="bg-primary h-full w-[16%]"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-space-xs text-text-primary pt-space-xs text-[13px]">
+                                        <span class="text-accent-turquoise select-none">></span>
+                                        <span class="inline-block w-2 h-4 bg-accent-turquoise animate-pulse"></span>
+                                        <span class="text-text-secondary italic text-[12px]">Aguardando diretivas de engenharia...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Key Metrics Ribbon -->
+                    <div class="mt-space-xl grid grid-cols-2 md:grid-cols-4 gap-space-md border-t border-b border-border-subtle py-space-lg bg-background-surface/30">
+                        <div class="flex flex-col gap-space-xs">
+                            <span class="font-mono-data-lg text-mono-data-lg font-bold text-accent-turquoise tracking-tight">48h</span>
+                            <span class="font-label-sm text-label-sm uppercase text-text-secondary font-mono-data">Diagnóstico & Viabilidade</span>
+                            <p class="font-body-sm text-body-sm text-text-secondary/80">Avaliação técnica e de modelo de negócio com precisão matemática.</p>
+                        </div>
+                        <div class="flex flex-col gap-space-xs border-l border-border-subtle pl-space-md">
+                            <span class="font-mono-data-lg text-mono-data-lg font-bold text-text-primary tracking-tight">100%</span>
+                            <span class="font-label-sm text-label-sm uppercase text-text-secondary font-mono-data">LGPD & Governança B2G</span>
+                            <p class="font-body-sm text-body-sm text-text-secondary/80">Arquitetura concebida para atender à administração pública e regulação estrita.</p>
+                        </div>
+                        <div class="flex flex-col gap-space-xs md:border-l border-border-subtle md:pl-space-md">
+                            <span class="font-mono-data-lg text-mono-data-lg font-bold text-accent-turquoise tracking-tight">0 Falhas</span>
+                            <span class="font-label-sm text-label-sm uppercase text-text-secondary font-mono-data">Picos de Concorrência</span>
+                            <p class="font-body-sm text-body-sm text-text-secondary/80">Processamento idempotente sob cargas extremas e concorrência massiva.</p>
+                        </div>
+                        <div class="flex flex-col gap-space-xs border-l border-border-subtle pl-space-md">
+                            <span class="font-mono-data-lg text-mono-data-lg font-bold text-text-primary tracking-tight">99.98%</span>
+                            <span class="font-label-sm text-label-sm uppercase text-text-secondary font-mono-data">SLA de Disponibilidade</span>
+                            <p class="font-body-sm text-body-sm text-text-secondary/80">Resiliência operacional ininterrupta em infraestruturas distribuídas.</p>
+                        </div>
+                    </div>
+                </section>
+                <!-- ========================================================================= -->
+                <!-- 02. PROVA SOCIAL E PORTFÓLIO (CASES DE ENGENHARIA DE PRECISÃO) -->
+                <!-- ========================================================================= -->
+                <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin-desktop py-space-2xl" id="cases">
+                    <!-- Section Header -->
+                    <div class="flex flex-col gap-space-xs mb-space-xl">
+                        <div class="flex items-center gap-space-xs">
+                            <span class="font-mono-data text-label-sm text-accent-turquoise font-semibold">[ 01 // PROVA SOCIAL & DEPLOYMENTS ]</span>
+                            <div class="h-px bg-border-subtle flex-1 ml-space-sm"></div>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg font-bold text-text-primary tracking-tight max-w-3xl">Do papel à realidade: cases que geram impacto e solucionam dores complexas.</h2>
+                        <p class="font-body-md text-body-md text-text-secondary max-w-2xl">Infraestruturas digitais de alta precisão desenhadas para resolver gargalos regulatórios, educacionais e financeiros. Cada sistema é arquitetado para suportar escala crítica com zero fricção.</p>
+                    </div>
+                    <!-- 3D Perspective Case Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+                        <!-- Case 1: AIVI -->
+                        <div class="group relative bg-background-surface rounded-xl border border-border-subtle p-space-lg flex flex-col justify-between transition-all duration-300 hover:border-accent-turquoise hover:shadow-[0_0_30px_rgba(0,255,239,0.15)] [perspective:1000px]">
+                            <div class="flex flex-col gap-space-md">
+                                <div class="flex flex-wrap items-center gap-space-xs">
+                                    <span class="font-mono-data text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-accent-turquoise border border-accent-turquoise/30"> DEPLOYED: euGov SÃO GONÇALO/RN </span>
+                                    <span class="font-mono-data text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-text-secondary border border-border-subtle"> COGNITIVE_AI </span>
+                                </div>
+                                <div class="relative w-full h-44 rounded-lg overflow-hidden border border-border-subtle bg-surface-container-lowest flex items-center justify-center group-hover:border-accent-turquoise/40 transition-colors">
+                                    <img class="w-full h-full object-cover opacity-75 group-hover:opacity-95 transition-opacity" data-alt="Futuristic software interface for inclusive education and adaptive neurodivergent assessment showing telemetry curves, cognitive metrics, and clean glowing cyan data nodes on a deep navy dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa9O6robQ4lSFovJPFTaQEudgfVJUEZIa4i3HjkHkEu7VetPC_dYRpYSr4M5UJL3r-8jfxGCOtXhYJ0ybRC336MjdUuERlZi1vmU15THurbZUSQaJW0MhNsVgnFLpO6RPLFmU-rG9PkUdp63AmKa0kVjc5lndWXXo3VbTr40ujp1qeBssi0jBRt3rcU2z_I28qTliLiFjbbrLhTgxCS_p-FgNevon1Oa_famLjVlcOMwJGy7kD8fK0" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-background-surface via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-space-xs left-space-xs font-mono-data text-label-sm text-text-primary bg-background-deep/80 px-2 py-0.5 rounded">MOD: NEURODIVERSITY_ENGINE</div>
+                                </div>
+                                <div>
+                                    <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary group-hover:text-accent-turquoise transition-colors">AIVI // EdTech & IA Inclusiva</h3>
+                                    <div class="mt-space-xs flex flex-col gap-space-xs text-body-sm text-text-secondary">
+                                        <p><strong class="text-text-primary font-mono-data text-[12px] uppercase">Desafio:</strong> Transformar metodologia científica de apoio a neurodivergentes em ferramenta escalável para cumprir a legislação especial nas redes de ensino.</p>
+                                        <p><strong class="text-text-primary font-mono-data text-[12px] uppercase">Solução:</strong> Plataforma integrada com IA que automatiza levantamento de necessidades e adaptação de atividades pedagógicas para educadores.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-sm border-t border-border-subtle">
+                                <div class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise-dim p-space-xs rounded">Impacto: Rede Municipal euGov Homologada • +15.000 avaliações adaptativas processadas • Zero barreiras de aprendizado.</div>
+                            </div>
+                        </div>
+                        <!-- Case 2: PGRS Digital -->
+                        <div class="group relative bg-background-surface rounded-xl border border-border-subtle p-space-lg flex flex-col justify-between transition-all duration-300 hover:border-accent-turquoise hover:shadow-[0_0_30px_rgba(0,255,239,0.15)] [perspective:1000px]">
+                            <div class="flex flex-col gap-space-md">
+                                <div class="flex flex-wrap items-center gap-space-xs">
+                                    <span class="font-mono-data text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-accent-turquoise border border-accent-turquoise/30"> COMPLIANCE 2027: ACTIVE </span>
+                                    <span class="font-mono-data text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-text-secondary border border-border-subtle"> REGULATORY_ENGINE </span>
+                                </div>
+                                <div class="relative w-full h-44 rounded-lg overflow-hidden border border-border-subtle bg-surface-container-lowest flex items-center justify-center group-hover:border-accent-turquoise/40 transition-colors">
+                                    <img class="w-full h-full object-cover opacity-75 group-hover:opacity-95 transition-opacity" data-alt="Technical dashboard showing environmental waste management compliance, audit trail verification, document generation telemetry, and legal validation stamps in dark mode with turquoise accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLeA7szhWLc42OWRm-Uor7sJ1GTur3F0VDmbYrOC6fYhrbhmU4ksvrfOrYuwl2yaF30nbZ9Nr8KIAtPPLSQ3D77sGHlP_mmlnLg21wnwNdyqVvTGVPGrqyEZmAo4Dl01S1w9BHZFIadRFZaQGohsEmz23VxrNlsrf0NsH8AGJfxAVJtlwE4_LJhLkccr7D17iOR3cMH6jleE8hOqdQ7RZx5I9iVDtuaWguL-uaBUwaJz_UW_jPT7dJ" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-background-surface via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-space-xs left-space-xs font-mono-data text-label-sm text-text-primary bg-background-deep/80 px-2 py-0.5 rounded">MOD: LEGALTECH_PARSER</div>
+                                </div>
+                                <div>
+                                    <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary group-hover:text-accent-turquoise transition-colors">PGRS Digital // LegalTech Ambiental</h3>
+                                    <div class="mt-space-xs flex flex-col gap-space-xs text-body-sm text-text-secondary">
+                                        <p><strong class="text-text-primary font-mono-data text-[12px] uppercase">Desafio:</strong> Antecipar a obrigatoriedade legal de 2027 do Plano de Gerenciamento de Resíduos Sólidos para médias e grandes empresas.</p>
+                                        <p><strong class="text-text-primary font-mono-data text-[12px] uppercase">Solução:</strong> Sistema automatizado com IA especialista na legislação ambiental que valida fluxos de descarte e conecta a peritos habilitados.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-sm border-t border-border-subtle">
+                                <div class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise-dim p-space-xs rounded">Impacto: 100% dos relatórios em compliance automático • Redução de 82% no ciclo de validação ambiental.</div>
+                            </div>
+                        </div>
+                        <!-- Case 3: PayEvents -->
+                        <div class="group relative bg-background-surface rounded-xl border border-border-subtle p-space-lg flex flex-col justify-between transition-all duration-300 hover:border-accent-turquoise hover:shadow-[0_0_30px_rgba(0,255,239,0.15)] [perspective:1000px]">
+                            <div class="flex flex-col gap-space-md">
+                                <div class="flex flex-wrap items-center gap-space-xs">
+                                    <span class="font-mono-data text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-accent-turquoise border border-accent-turquoise/30"> HIGH_CONCURRENCY </span>
+                                    <span class="font-mono-data text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-text-secondary border border-border-subtle"> CHECKOUT_ENGINE </span>
+                                </div>
+                                <div class="relative w-full h-44 rounded-lg overflow-hidden border border-border-subtle bg-surface-container-lowest flex items-center justify-center group-hover:border-accent-turquoise/40 transition-colors">
+                                    <img class="w-full h-full object-cover opacity-75 group-hover:opacity-95 transition-opacity" data-alt="High throughput fintech transaction terminal showing real-time concurrent purchase orders, asynchronous queues, low latency graphs, and cryptographic tokens on a sleek dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDScWj6WFHTH9C-A8Je1vmegQg717eZGUBdEdnletdSHVY66hWvR0mAgF0pf2jHzqlx4vwfm7PpQfe-cqVbPnlhEzWWYx6wiUsQmbCPM4_du_hCaOA_-lTrJWIKv0RW-OzW-b7gWrKozlOrtzd64BIZ47sgwxHi0djAIHGb_IF3728E3zZLYzbHpqArJBGZhuWWlcxhpz1vMf9uvGsmoH5g7HiCMAilJMw1oYtSViIrVnB4y2h2OBfV" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-background-surface via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-space-xs left-space-xs font-mono-data text-label-sm text-text-primary bg-background-deep/80 px-2 py-0.5 rounded">MOD: LOW_LATENCY_TX</div>
+                                </div>
+                                <div>
+                                    <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary group-hover:text-accent-turquoise transition-colors">PayEvents // Fintech & Inscrições Massivas</h3>
+                                    <div class="mt-space-xs flex flex-col gap-space-xs text-body-sm text-text-secondary">
+                                        <p><strong class="text-text-primary font-mono-data text-[12px] uppercase">Desafio:</strong> Suportar picos massivos de compras instantâneas em maratonas esportivas sem degradação do gateway nem abandono de carrinho.</p>
+                                        <p><strong class="text-text-primary font-mono-data text-[12px] uppercase">Solução:</strong> Arquitetura de microserviços assíncronos com isolamento transacional idempotente e liquidação instantânea.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-sm border-t border-border-subtle">
+                                <div class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise-dim p-space-xs rounded">Impacto: 12.000 requisições/segundo em rush de inscrições • Zero falhas transacionais registradas.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Secondary Deployment Telemetry Rows (Akili, Tatour, Servclub) -->
+                    <div class="mt-space-xl flex flex-col gap-space-xs bg-surface-container-lowest/60 rounded-xl border border-border-subtle p-space-md">
+                        <div class="font-mono-data text-label-sm text-text-secondary pb-space-xs border-b border-border-subtle flex justify-between items-center">
+                            <span>SECONDARY_DEPLOYMENTS // VERIFIED DEEP-TECH IMPLEMENTATIONS</span>
+                            <span class="text-accent-turquoise">TOTAL: 3 LIVE CLUSTERS</span>
+                        </div>
+                        <!-- Row 1: Akili -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between py-space-sm border-b border-border-subtle/50 hover:bg-background-surface/40 px-space-xs rounded transition-colors gap-2">
+                            <div class="flex items-center gap-space-md">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">SYS:01</span>
+                                <div>
+                                    <span class="font-headline-sm text-body-lg font-bold text-text-primary">Akili</span>
+                                    <span class="text-text-secondary text-body-sm ml-space-xs">// Plataforma adaptativa para gestão de laudos e intervenções multidisciplinares.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-space-md">
+                                <span class="font-mono-data text-label-sm text-text-secondary bg-surface-container px-2 py-0.5 rounded">HIPAA_COMPLIANT</span>
+                                <a class="font-mono-data text-label-sm text-accent-turquoise hover:underline flex items-center" href="#intake"> [ Ler case -> ] </a>
+                            </div>
+                        </div>
+                        <!-- Row 2: Tatour -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between py-space-sm border-b border-border-subtle/50 hover:bg-background-surface/40 px-space-xs rounded transition-colors gap-2">
+                            <div class="flex items-center gap-space-md">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">SYS:02</span>
+                                <div>
+                                    <span class="font-headline-sm text-body-lg font-bold text-text-primary">Tatour</span>
+                                    <span class="text-text-secondary text-body-sm ml-space-xs">// Motor de roteamento geoespacial e reservas dinâmicas para turismo receptivo inteligente.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-space-md">
+                                <span class="font-mono-data text-label-sm text-text-secondary bg-surface-container px-2 py-0.5 rounded">GEO_DYNAMIC_API</span>
+                                <a class="font-mono-data text-label-sm text-accent-turquoise hover:underline flex items-center" href="#intake"> [ Ler case -> ] </a>
+                            </div>
+                        </div>
+                        <!-- Row 3: Servclub -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between py-space-sm hover:bg-background-surface/40 px-space-xs rounded transition-colors gap-2">
+                            <div class="flex items-center gap-space-md">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">SYS:03</span>
+                                <div>
+                                    <span class="font-headline-sm text-body-lg font-bold text-text-primary">Servclub</span>
+                                    <span class="text-text-secondary text-body-sm ml-space-xs">// Motor federado de benefícios, fidelização e liquidação de convênios em escala corporativa.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-space-md">
+                                <span class="font-mono-data text-label-sm text-text-secondary bg-surface-container px-2 py-0.5 rounded">MULTI_TENANT_CORE</span>
+                                <a class="font-mono-data text-label-sm text-accent-turquoise hover:underline flex items-center" href="#intake"> [ Ler case -> ] </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Authenticated Testimonial Statement Quote Block -->
+                    <div class="mt-space-xl p-space-lg rounded-xl border border-border-subtle bg-gradient-to-r from-background-surface to-surface-container-lowest relative overflow-hidden shadow-lg">
+                        <div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-subtle">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="material-symbols-outlined text-accent-turquoise text-[18px]">verified_user</span>
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">SIGNATURE: SHA256 // CRYPTOGRAPHICALLY_ATTESTED</span>
+                            </div>
+                            <span class="font-mono-data text-label-sm text-text-secondary">AUDIT_REF: JBTC-VAL-2025</span>
+                        </div>
+                        <blockquote class="font-headline-sm text-headline-sm text-text-primary font-normal leading-relaxed italic">“A Jabatec não apenas codificou nossa ideia; eles estruturaram o negócio, enxergaram oportunidades B2G que não tínhamos mapeado e entregaram uma plataforma de IA sólida que está transformando a educação pública municipal.”</blockquote>
+                        <div class="mt-space-md flex items-center justify-between">
+                            <div>
+                                <div class="font-label-md text-label-md font-bold text-text-primary">Liderança Executiva & Produto</div>
+                                <div class="font-mono-data text-label-sm text-text-secondary">Founder da AIVI / Akili • Ecossistema euGov de Inovação Pública</div>
+                            </div>
+                            <div class="hidden sm:flex items-center gap-space-xs font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise/10 px-space-sm py-1 rounded">STATUS: HOMOLOGADO_GOV</div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ========================================================================= -->
+                <!-- 03. METODOLOGIA: O LOOP INFINITO DE VALIDAÇÃO & ARQUITETURA -->
+                <!-- ========================================================================= -->
+                <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin-desktop py-space-2xl" id="metodologia">
+                    <div class="flex flex-col gap-space-xs mb-space-xl">
+                        <div class="flex items-center gap-space-xs">
+                            <span class="font-mono-data text-label-sm text-accent-turquoise font-semibold">[ 02 // ENGENHARIA METODOLÓGICA ]</span>
+                            <div class="h-px bg-border-subtle flex-1 ml-space-sm"></div>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg font-bold text-text-primary tracking-tight max-w-3xl">Mais que código: entregamos negócios estruturados e prontos para o mercado.</h2>
+                        <p class="font-body-md text-body-md text-text-secondary max-w-2xl">Na Jabatec, nenhum código é escrito sem que a ideia esteja validada. Atuamos com filosofia Lean e metodologias ágeis para garantir entregas granulares, previsíveis e livres de desperdício computacional.</p>
+                    </div>
+                    <!-- Visual Interactive Loop Diagram / Methodology Ribbon -->
+                    <div class="relative bg-background-surface rounded-xl border border-border-subtle p-space-lg mb-space-xl">
+                        <div class="font-mono-data text-label-sm text-text-secondary mb-space-md flex items-center justify-between">
+                            <span>CONTINUOUS_EXECUTION_PIPELINE // ZERO-WASTE ARTIFACT</span>
+                            <span class="text-accent-turquoise font-semibold">FEEDBACK_CYCLE: 14 DAYS</span>
+                        </div>
+                        <!-- Linear pipeline steps -->
+                        <div class="grid grid-cols-1 md:grid-cols-6 gap-space-sm relative">
+                            <!-- Step 1 -->
+                            <div class="p-space-sm bg-surface-container-lowest rounded border border-border-subtle flex flex-col gap-1 hover:border-accent-turquoise transition-colors">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">01. DISCOVERY</span>
+                                <span class="font-label-md text-label-md font-semibold text-text-primary">Imersão na Dor</span>
+                                <p class="text-[12px] text-text-secondary">Mapeamento empírico da fricção real dos usuários e reguladores.</p>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="p-space-sm bg-surface-container-lowest rounded border border-border-subtle flex flex-col gap-1 hover:border-accent-turquoise transition-colors">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">02. VIABILITY</span>
+                                <span class="font-label-md text-label-md font-semibold text-text-primary">Unit Economics</span>
+                                <p class="text-[12px] text-text-secondary">Modelagem de receita, margens operacionais e viabilidade B2B/B2G.</p>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="p-space-sm bg-surface-container-lowest rounded border border-border-subtle flex flex-col gap-1 hover:border-accent-turquoise transition-colors">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">03. PROTOTYPE</span>
+                                <span class="font-label-md text-label-md font-semibold text-text-primary">Prototipagem UX</span>
+                                <p class="text-[12px] text-text-secondary">Wireframes de alta precisão testados diretamente com stakeholders chave.</p>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="p-space-sm bg-surface-container-lowest rounded border border-border-subtle flex flex-col gap-1 hover:border-accent-turquoise transition-colors">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">04. ARCHITECT</span>
+                                <span class="font-label-md text-label-md font-semibold text-text-primary">Engenharia Modular</span>
+                                <p class="text-[12px] text-text-secondary">APIs seguras, microsserviços desacoplados e banco de dados resiliente.</p>
+                            </div>
+                            <!-- Step 5 -->
+                            <div class="p-space-sm bg-surface-container-lowest rounded border border-border-subtle flex flex-col gap-1 hover:border-accent-turquoise transition-colors">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise">05. AI APPLIED</span>
+                                <span class="font-label-md text-label-md font-semibold text-text-primary">Modelos & Regras</span>
+                                <p class="text-[12px] text-text-secondary">Algoritmos dedicados com guardrails de conformidade jurídica estrita.</p>
+                            </div>
+                            <!-- Step 6 -->
+                            <div class="p-space-sm bg-surface-container-lowest rounded border border-accent-turquoise/40 flex flex-col gap-1 bg-accent-turquoise-dim">
+                                <span class="font-mono-data text-label-sm text-accent-turquoise font-bold">06. DEPLOY</span>
+                                <span class="font-label-md text-label-md font-semibold text-text-primary">Escala & Gov</span>
+                                <p class="text-[12px] text-text-secondary">Lançamento em cluster soberano, monitoria APM e conformidade contínua.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 4 Expertises in Terminal Panels Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+                        <!-- Expertise 1 -->
+                        <div class="p-space-lg bg-background-surface rounded-xl border border-border-subtle flex flex-col justify-between hover:border-accent-turquoise/50 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-space-sm">
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise">[ EXP_01 // STRATEGY ]</span>
+                                    <span class="material-symbols-outlined text-text-secondary text-[20px]">analytics</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mb-space-xs">Consultoria Estratégica e Plano de Negócios</h3>
+                                <p class="font-body-sm text-body-sm text-text-secondary">Não iniciamos nenhuma linha de código às cegas. Avaliamos a viabilidade real da solução através de benchmarking agressivo, Design Thinking aplicado, unit economics claros e estruturação de rotas de aquisição no ecossistema público e privado.</p>
+                            </div>
+                            <div class="mt-space-md pt-space-sm border-t border-border-subtle font-mono-data text-label-sm text-text-secondary flex flex-wrap gap-2">
+                                <span class="bg-surface-container px-2 py-0.5 rounded">MODELAGEM_CANVAS</span>
+                                <span class="bg-surface-container px-2 py-0.5 rounded">UNIT_ECONOMICS</span>
+                                <span class="bg-surface-container px-2 py-0.5 rounded">GOV_ACQUISITION</span>
+                            </div>
+                        </div>
+                        <!-- Expertise 2 -->
+                        <div class="p-space-lg bg-background-surface rounded-xl border border-border-subtle flex flex-col justify-between hover:border-accent-turquoise/50 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-space-sm">
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise">[ EXP_02 // FULL_STACK_DEV ]</span>
+                                    <span class="material-symbols-outlined text-text-secondary text-[20px]">terminal</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mb-space-xs">Desenvolvimento de Software Sob Medida</h3>
+                                <p class="font-body-sm text-body-sm text-text-secondary">Construção de aplicações escaláveis para web, mobile e APIs de alta vazão. Foco absoluto em código limpo, documentado, padrões de segurança OWASP, microserviços isolados e esteira de CI/CD contínua.</p>
+                            </div>
+                            <div class="mt-space-md pt-space-sm border-t border-border-subtle font-mono-data text-label-sm text-text-secondary flex flex-wrap gap-2">
+                                <span class="bg-surface-container px-2 py-0.5 rounded">IDEMPOTENT_APIS</span>
+                                <span class="bg-surface-container px-2 py-0.5 rounded">MODULAR_ARCH</span>
+                                <span class="bg-surface-container px-2 py-0.5 rounded">ZERO_LATENCY_UI</span>
+                            </div>
+                        </div>
+                        <!-- Expertise 3 -->
+                        <div class="p-space-lg bg-background-surface rounded-xl border border-border-subtle flex flex-col justify-between hover:border-accent-turquoise/50 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-space-sm">
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise">[ EXP_03 // COGNITIVE_AI ]</span>
+                                    <span class="material-symbols-outlined text-text-secondary text-[20px]">smart_toy</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mb-space-xs">Expertise em IA e Automação Especialista</h3>
+                                <p class="font-body-sm text-body-sm text-text-secondary">Integrando inteligência artificial prática que soluciona regras de negócios sensíveis, elimina tarefas repetitivas, faz processamento de documentos legais com precisão e atua na tomada de decisões com zero alucinação através de guardrails de conformidade.</p>
+                            </div>
+                            <div class="mt-space-md pt-space-sm border-t border-border-subtle font-mono-data text-label-sm text-text-secondary flex flex-wrap gap-2">
+                                <span class="bg-surface-container px-2 py-0.5 rounded">GUARDRAILS_LLM</span>
+                                <span class="bg-surface-container px-2 py-0.5 rounded">PARSER_JURIDICO</span>
+                                <span class="bg-surface-container px-2 py-0.5 rounded">RAG_ENTERPRISE</span>
+                            </div>
+                        </div>
+                        <!-- Expertise 4 -->
+                        <div class="p-space-lg bg-background-surface rounded-xl border border-border-subtle flex flex-col justify-between hover:border-accent-turquoise/50 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-space-sm">
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise">[ EXP_04 // B2G_DEPLOYMENT ]</span>
+                                    <span class="material-symbols-outlined text-text-secondary text-[20px]">policy</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mb-space-xs">Implantação, Homologação e Escala Institucional</h3>
+                                <p class="font-body-sm text-body-sm text-text-secondary">Garantia de segurança da informação em conformidade com as diretrizes da LGPD, normas B2G e governança pública. Sistemas preparados para receber tráfego em escala sem paradas acidentais nem vazamento de dados.</p>
+                            </div>
+                            <div class="mt-space-md pt-space-sm border-t border-border-subtle font-mono-data text-label-sm text-text-secondary flex flex-wrap gap-2">
+                                <span class="bg-surface-container px-2 py-0.5 rounded">LGPD_STRICT</span>
+                                <span class="bg-surface-container px-2 py-0.5 rounded">B2G_STANDARDS</span>
+                                <span class="bg-surface-container px-2 py-0.5 rounded">SOVEREIGN_CLOUD</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ========================================================================= -->
+                <!-- 04. A STACK TECNOLÓGICA (DEVELOPER PRECISION SPEC) -->
+                <!-- ========================================================================= -->
+                <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin-desktop py-space-2xl" id="stack">
+                    <div class="flex flex-col gap-space-xs mb-space-xl">
+                        <div class="flex items-center gap-space-xs">
+                            <span class="font-mono-data text-label-sm text-accent-turquoise font-semibold">[ TECH_MANIFEST // DEVELOPER PRECISION SPEC ]</span>
+                            <div class="h-px bg-border-subtle flex-1 ml-space-sm"></div>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg font-bold text-text-primary tracking-tight">A Stack Tecnológica: Escolhas de Engenharia Sem Concessões.</h2>
+                        <p class="font-body-md text-body-md text-text-secondary max-w-2xl">Ferramentas selecionadas por critérios rigorosos de tipagem estrita, performance bruta, estabilidade operacional e ecossistema maduro.</p>
+                    </div>
+                    <!-- Tech Dashboard Control Panel -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+                        <!-- Tier 1: Backend & Microservices -->
+                        <div class="bg-background-surface rounded-xl border border-border-subtle p-space-lg flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-subtle">
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise">LAYER_01 // CORE_BACKEND</span>
+                                    <span class="w-2 h-2 rounded-full bg-accent-turquoise"></span>
+                                </div>
+                                <div class="flex flex-col gap-space-md">
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">PHP / Laravel</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise">SLA 99.99%</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Robusto motor corporativo, ORM confiável e filas assíncronas.</p>
+                                    </div>
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">Python / FastAPI</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise"><8ms latency</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Microsserviços de IA, orquestração de LLMs e processamento vetorial.</p>
+                                    </div>
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">PostgreSQL & Redis</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise">ACID Strict</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Consistência relacional pura combinada com cache em memória de ultra-velocidade.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-space-md mt-space-md border-t border-border-subtle flex justify-between font-mono-data text-label-sm text-text-secondary">
+                                <span>PARADIGM:</span>
+                                <span class="text-text-primary">EVENT_DRIVEN_MICROSERVICES</span>
+                            </div>
+                        </div>
+                        <!-- Tier 2: Frontend & Mobile Client Interfaces -->
+                        <div class="bg-background-surface rounded-xl border border-border-subtle p-space-lg flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-subtle">
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise">LAYER_02 // CLIENT_SURFACES</span>
+                                    <span class="w-2 h-2 rounded-full bg-accent-turquoise"></span>
+                                </div>
+                                <div class="flex flex-col gap-space-md">
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">TypeScript & React / Next.js</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise">100% Typed</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Zero bugs de tipo em tempo de execução com Server Components ultrarrápidos.</p>
+                                    </div>
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">React Native & Expo</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise">Native 60fps</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Experiência mobile soberana para iOS e Android com base compartilhada.</p>
+                                    </div>
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">Tailwind CSS & WebGL</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise">Zero CSS Bloat</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Interfaces cirúrgicas, responsividade imediata e fluidez visual de terminal.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-space-md mt-space-md border-t border-border-subtle flex justify-between font-mono-data text-label-sm text-text-secondary">
+                                <span>PARADIGM:</span>
+                                <span class="text-text-primary">REACTIVE_ISOMORPHIC</span>
+                            </div>
+                        </div>
+                        <!-- Tier 3: Infrastructure, Security & DevOps -->
+                        <div class="bg-background-surface rounded-xl border border-border-subtle p-space-lg flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-subtle">
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise">LAYER_03 // SOVEREIGN_INFRA</span>
+                                    <span class="w-2 h-2 rounded-full bg-accent-turquoise"></span>
+                                </div>
+                                <div class="flex flex-col gap-space-md">
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">Docker & Kubernetes</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise">Auto-Scale</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Contêineres isolados com orquestração automática contra tráfego massivo.</p>
+                                    </div>
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">Nginx & Edge Proxies</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise">TLS 1.3 / H2</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Terminação SSL ultrarrápida com proteção contra ataques DDoS integrados.</p>
+                                    </div>
+                                    <div class="p-space-xs bg-surface-container-lowest rounded border border-border-subtle">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-mono-data text-body-sm font-bold text-text-primary">Cloud Soberana & CI/CD</span>
+                                            <span class="font-mono-data text-label-sm text-accent-turquoise">Automated QA</span>
+                                        </div>
+                                        <p class="text-[12px] text-text-secondary">Pipelines de deploy automático com análise estática de vulnerabilidades e SAST.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-space-md mt-space-md border-t border-border-subtle flex justify-between font-mono-data text-label-sm text-text-secondary">
+                                <span>PARADIGM:</span>
+                                <span class="text-text-primary">INFRA_AS_CODE // ZERO-TRUST</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ========================================================================= -->
+                <!-- 05. ELEMENTOS HUMANOS: A TASK-FORCE MULTIDISCIPLINAR -->
+                <!-- ========================================================================= -->
+                <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin-desktop py-space-2xl" id="time">
+                    <div class="flex flex-col gap-space-xs mb-space-xl">
+                        <div class="flex items-center gap-space-xs">
+                            <span class="font-mono-data text-label-sm text-accent-turquoise font-semibold">[ 03 // CORE ENGINEERING SQUAD ]</span>
+                            <div class="h-px bg-border-subtle flex-1 ml-space-sm"></div>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg font-bold text-text-primary tracking-tight">Uma task-force multidisciplinar para o seu projeto.</h2>
+                        <p class="font-body-md text-body-md text-text-secondary max-w-2xl">Tecnologia, negócios e finanças precisam andar juntos. Nosso time sênior combina visões complementares para garantir solidez técnica, viabilidade orçamentária e precisão estratégica.</p>
+                    </div>
+                    <!-- Squad Members Grid (5 Roles) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+                        <!-- Member 1: CEO -->
+                        <div class="group bg-background-surface rounded-xl border border-border-subtle p-space-md flex flex-col justify-between hover:border-accent-turquoise transition-all duration-200">
+                            <div class="flex flex-col gap-space-sm">
+                                <div class="w-full aspect-square rounded-lg overflow-hidden border border-border-subtle bg-surface-container-lowest">
+                                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="Portrait of a modern tech executive CEO dressed in minimalist black attire with a sharp confident look in an architectural dark concrete studio with subtle teal rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuOmNMMnFW1YjWmElBd-0qE5__dkpSHyHuVJqC34thbNjmLsDvPDapY3eLVlqq_vcqncZQGmfs3sBaOvXOf0Qr6jTVz09Dxdpj6IJEpXKs6-0FDY28yddZNfLC4o83KdqKU51KBEgQCFO1YKBI0JOr-UMcX_0GPZ8hvBz5DHAIDHeQnHPn9YijCOh8AEMYm3kSFU7DkHtlNm3yyGGqY9DZvNpyuab70MYxKcaoCkVoH2gDGL0zGXOs" />
+                                </div>
+                                <div>
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise-dim px-2 py-0.5 rounded"> ROLE: CEO </span>
+                                    <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mt-space-xs">Liderança Executiva</h3>
+                                    <p class="font-body-sm text-body-sm text-text-secondary mt-1">Especialista em Negócios e Visão de Impacto Social.</p>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-xs border-t border-border-subtle font-mono-data text-[11px] text-text-secondary">SUPERPOWER: <span class="text-text-primary font-semibold">Transformar dor latente em rota comercial viável.</span></div>
+                        </div>
+                        <!-- Member 2: GP (Gerente de Projetos) -->
+                        <div class="group bg-background-surface rounded-xl border border-border-subtle p-space-md flex flex-col justify-between hover:border-accent-turquoise transition-all duration-200">
+                            <div class="flex flex-col gap-space-sm">
+                                <div class="w-full aspect-square rounded-lg overflow-hidden border border-border-subtle bg-surface-container-lowest">
+                                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="Professional female project manager and compliance officer in modern corporate deep tech office, serious expression, with soft ambient cyan and navy illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgIU_LEYigZHkeXbsYNU_pI8Yixew8BDp4k4bHOzoFVTkDheWY7Y88qBTThOywaWZCWxSkehtwPv-8zWDcXY7TfqfW34eTRVF8yAAmizhxc4EHU-C2kxITCCp5X-ib_3opUxlN7EnkIdQZcN2kTMiW8eqhhg07juKMV0XyKK_NVp9d1shI4tRQ8lDqDhZ3znsFTYv0XjygXt-ccehTb08extvYM29Go64jQRn-SorsVFkAUpH8C4Wu" />
+                                </div>
+                                <div>
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise-dim px-2 py-0.5 rounded"> ROLE: GP / COMPLIANCE </span>
+                                    <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mt-space-xs">Gerência de Projetos</h3>
+                                    <p class="font-body-sm text-body-sm text-text-secondary mt-1">Especialista em Gestão Ágil, Projetos B2G e Auditoria LGPD.</p>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-xs border-t border-border-subtle font-mono-data text-[11px] text-text-secondary">SUPERPOWER: <span class="text-text-primary font-semibold">Previsibilidade cirúrgica e conformidade regulatória.</span></div>
+                        </div>
+                        <!-- Member 3: CFO -->
+                        <div class="group bg-background-surface rounded-xl border border-border-subtle p-space-md flex flex-col justify-between hover:border-accent-turquoise transition-all duration-200">
+                            <div class="flex flex-col gap-space-sm">
+                                <div class="w-full aspect-square rounded-lg overflow-hidden border border-border-subtle bg-surface-container-lowest">
+                                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="Focused financial director CFO reviewing econometric metrics on glass displays in a modern nocturnal terminal environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYnL0kBx4RNDtQ33j9FA_93t0U0qiegtjWyZUjhQ74AIJQtbv0mh8i-3dGYaBQ_Q1CmZbFdDYYT9T_8Rc1XXFIi8-LavvI0aYTzhhEI160bECWEkPanKdk8hc6slYJTYnPz_Oi1sN1yBiU7tXVAyrMfCjEhcv0Iqo-Bt7cCPQfIATolCJhfMMpeAbXey3K4EqiwollYVQ64E4XrpBP5WvPbrV2zZmlfxi1CC9QXDw4bedmM2klMeKa" />
+                                </div>
+                                <div>
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise-dim px-2 py-0.5 rounded"> ROLE: CFO </span>
+                                    <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mt-space-xs">Estruturação Financeira</h3>
+                                    <p class="font-body-sm text-body-sm text-text-secondary mt-1">Especialista em Viabilidade Econômica, Valuation e Margem.</p>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-xs border-t border-border-subtle font-mono-data text-[11px] text-text-secondary">SUPERPOWER: <span class="text-text-primary font-semibold">Unit economics impecáveis e mitigação de risco de caixa.</span></div>
+                        </div>
+                        <!-- Member 4: Dev Sênior (IA & Security) -->
+                        <div class="group bg-background-surface rounded-xl border border-border-subtle p-space-md flex flex-col justify-between hover:border-accent-turquoise transition-all duration-200">
+                            <div class="flex flex-col gap-space-sm">
+                                <div class="w-full aspect-square rounded-lg overflow-hidden border border-border-subtle bg-surface-container-lowest">
+                                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="Senior software engineer and artificial intelligence researcher with technical monitors casting code reflections on glasses in a sleek dark workstation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDNTdt3bJabxycxGOz2ReLgMB3klR738keB-j5q7l1I1UdDBiaQ1IL8d2Oc5AkWltQJF_IJDOzzAfov7hU88I8f-mp28sim--uai4biIFezSRKBBvA4EgNFvtBDeDQ37-T2ptiTCAvCQ67a5BDppGah9n5cSYsZKjPmCUaobL93K0FpNiNxG1JK85KWYtK8oOUoMAqLsyklgzjcjg7vbAT_EPNEtgqaV6eG2kgF4EhKscmwCNYFqZV" />
+                                </div>
+                                <div>
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise-dim px-2 py-0.5 rounded"> ROLE: SR_DEV // AI </span>
+                                    <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mt-space-xs">Engenharia Sênior</h3>
+                                    <p class="font-body-sm text-body-sm text-text-secondary mt-1">Especialista em Soluções com Inteligência Artificial e Segurança Digital.</p>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-xs border-t border-border-subtle font-mono-data text-[11px] text-text-secondary">SUPERPOWER: <span class="text-text-primary font-semibold">Modelos cognitivos sem alucinações e criptografia pura.</span></div>
+                        </div>
+                        <!-- Member 5: Arquiteto de Soluções -->
+                        <div class="group bg-background-surface rounded-xl border border-border-subtle p-space-md flex flex-col justify-between hover:border-accent-turquoise transition-all duration-200">
+                            <div class="flex flex-col gap-space-sm">
+                                <div class="w-full aspect-square rounded-lg overflow-hidden border border-border-subtle bg-surface-container-lowest">
+                                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="System architect software developer working on distributed topology diagram on a dark glass monitor with turquoise wiring visuals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp4dsCfasSQjzWiF9GV7MqB2J5Vu-_tFW3ibmEOhUPZ39HqA8M6MxgFqnu-VED0VVK-liuNWl8IkDb0NhYI_jIvnMtRx4j_PuACCVCX4hRbRwz6R-ul7ZAq_09-TsyYN0-dnbEm7jF1e86FFiYo-yEa_CHdw_U26UiRe-TgdeTZoIPyFxI1P3gfsTrRWv34FFM0o_4IsvHa6QWkxbZwsQBAnSaPzlAYqiLw-ISZ5U5rg_O1r8b6jgX" />
+                                </div>
+                                <div>
+                                    <span class="font-mono-data text-label-sm text-accent-turquoise bg-accent-turquoise-dim px-2 py-0.5 rounded"> ROLE: SOLUTIONS_ARCH </span>
+                                    <h3 class="font-headline-sm text-headline-sm font-bold text-text-primary mt-space-xs">Arquitetura de Soluções</h3>
+                                    <p class="font-body-sm text-body-sm text-text-secondary mt-1">Especialista em transformar gargalos operacionais em algoritmos distribuídos.</p>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-xs border-t border-border-subtle font-mono-data text-[11px] text-text-secondary">SUPERPOWER: <span class="text-text-primary font-semibold">Transformar dores operacionais complexas em código limpo.</span></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ========================================================================= -->
+                <!-- 06. TERMINAL DE INGESTÃO & CONTATO (FECHAMENTO) -->
+                <!-- ========================================================================= -->
+                <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin-desktop py-space-2xl" id="intake">
+                    <div class="relative bg-background-surface rounded-2xl border border-border-subtle p-space-lg md:p-space-2xl overflow-hidden shadow-2xl">
+                        <!-- Glow ambient light -->
+                        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-accent-turquoise/10 rounded-full blur-[120px] pointer-events-none"></div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+                            <!-- Left Column: Copy & Telemetry SLA -->
+                            <div class="lg:col-span-5 flex flex-col justify-between gap-space-lg">
+                                <div class="flex flex-col gap-space-xs">
+                                    <div class="flex items-center gap-space-xs">
+                                        <span class="font-mono-data text-label-sm text-accent-turquoise font-semibold">[ 04 // CONTACT_TERMINAL & INTAKE ]</span>
+                                    </div>
+                                    <h2 class="font-headline-lg text-headline-lg font-bold text-text-primary tracking-tight">Tem uma ideia que pode mudar o mercado ou a sociedade?</h2>
+                                    <p class="font-body-md text-body-md text-text-secondary">Conte-nos brevemente sobre o seu projeto. Nossa equipe técnica sênior irá analisar o escopo e retornaremos em até <strong>48 horas úteis</strong> para agendar uma sessão de diagnóstico de viabilidade.</p>
+                                </div>
+                                <!-- Direct Channels & Guarantee -->
+                                <div class="flex flex-col gap-space-md">
+                                    <div class="p-space-md bg-surface-container-lowest/80 rounded-xl border border-border-subtle flex flex-col gap-space-xs">
+                                        <div class="flex items-center gap-space-xs text-accent-turquoise font-mono-data text-label-sm">
+                                            <span class="material-symbols-outlined text-[18px]">verified</span>
+                                            <span>SLA DE RESPOSTA GARANTIDO: < 48 HORAS</span>
+                                        </div>
+                                        <p class="font-body-sm text-body-sm text-text-secondary">Seus dados estão protegidos sob acordos estritos de sigilo institucional e em integral conformidade com a LGPD (Lei Geral de Proteção de Dados).</p>
+                                    </div>
+                                    <div class="flex flex-col gap-space-xs font-mono-data text-label-sm text-text-secondary">
+                                        <div class="flex items-center gap-space-xs">
+                                            <span class="text-accent-turquoise">EMAIL:</span>
+                                            <a class="text-text-primary hover:text-accent-turquoise transition-colors" href="mailto:contato@jabatec.com.br">contato@jabatec.com.br</a>
+                                        </div>
+                                        <div class="flex items-center gap-space-xs">
+                                            <span class="text-accent-turquoise">LINKEDIN:</span>
+                                            <a class="text-text-primary hover:text-accent-turquoise transition-colors" href="#">linkedin.com/company/jabatec</a>
+                                        </div>
+                                        <div class="flex items-center gap-space-xs">
+                                            <span class="text-accent-turquoise">HEADQUARTERS:</span>
+                                            <span class="text-text-primary">Brasil // Edge Cluster LATAM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Right Column: Interactive Terminal Intake Form -->
+                            <div class="lg:col-span-7 bg-surface-container-lowest/90 rounded-xl border border-border-subtle p-space-lg backdrop-blur-md">
+                                <div class="flex items-center justify-between pb-space-sm mb-space-md border-b border-border-subtle font-mono-data text-label-sm text-text-secondary">
+                                    <div class="flex items-center gap-space-xs">
+                                        <span class="w-2 h-2 rounded-full bg-accent-turquoise animate-ping"></span>
+                                        <span>BUFFER_INTAKE // INGRESS_V4</span>
+                                    </div>
+                                    <span class="text-accent-turquoise">ENCRYPTION: RSA-4096</span>
+                                </div>
+                                <form
+                                    class="flex flex-col gap-space-md"
+                                    id="project-intake-form"
+                                    onsubmit="
+                                        event.preventDefault();
+                                        document.getElementById('form-feedback').classList.remove('hidden');
+                                    "
+                                >
+                                    <!-- Input 1: Nome -->
+                                    <div class="flex flex-col gap-1">
+                                        <label class="font-mono-data text-label-sm text-text-secondary flex items-center justify-between">
+                                            <span>01. NOME COMPLETO OU ORGANIZAÇÃO *</span>
+                                            <span class="text-[11px] text-text-secondary/60">ID_ENTIDADE</span>
+                                        </label>
+                                        <input class="bg-background-deep text-text-primary placeholder:text-text-secondary/40 border border-border-subtle rounded px-space-md py-space-xs font-body-sm focus:outline-none focus:border-accent-turquoise focus:ring-1 focus:ring-accent-turquoise transition-all" placeholder="Ex.: Dra. Helena Ramos ou GovTech Solutions" required="" type="text" />
+                                    </div>
+                                    <!-- Input 2: Email & Telefone em Grid -->
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                                        <div class="flex flex-col gap-1">
+                                            <label class="font-mono-data text-label-sm text-text-secondary flex items-center justify-between">
+                                                <span>02. E-MAIL CORPORATIVO *</span>
+                                            </label>
+                                            <input class="bg-background-deep text-text-primary placeholder:text-text-secondary/40 border border-border-subtle rounded px-space-md py-space-xs font-body-sm focus:outline-none focus:border-accent-turquoise focus:ring-1 focus:ring-accent-turquoise transition-all" placeholder="helena@instituicao.gov.br" required="" type="email" />
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <label class="font-mono-data text-label-sm text-text-secondary flex items-center justify-between">
+                                                <span>03. WHATSAPP OU TELEFONE</span>
+                                            </label>
+                                            <input class="bg-background-deep text-text-primary placeholder:text-text-secondary/40 border border-border-subtle rounded px-space-md py-space-xs font-body-sm focus:outline-none focus:border-accent-turquoise focus:ring-1 focus:ring-accent-turquoise transition-all" placeholder="+55 (11) 99999-0000" type="tel" />
+                                        </div>
+                                    </div>
+                                    <!-- Input 3: Dor do Projeto -->
+                                    <div class="flex flex-col gap-1">
+                                        <div class="flex items-center justify-between font-mono-data text-label-sm text-text-secondary">
+                                            <span>04. QUAL É A DOR QUE O SEU PROJETO RESOLVE? *</span>
+                                            <span class="text-[11px] text-accent-turquoise" id="char-counter">0 / 600 CARACTERES</span>
+                                        </div>
+                                        <textarea class="bg-background-deep text-text-primary placeholder:text-text-secondary/40 border border-border-subtle rounded px-space-md py-space-xs font-body-sm focus:outline-none focus:border-accent-turquoise focus:ring-1 focus:ring-accent-turquoise transition-all resize-none" id="project-problem-desc" maxlength="600" oninput="document.getElementById('char-counter').innerText = this.value.length + ' / 600 CARACTERES'" placeholder="Descreva brevemente o problema real, o público afetado (B2B/B2C/B2G) e se já existem requisitos regulatórios ou dados pré-existentes..." required="" rows="4"></textarea>
+                                    </div>
+                                    <!-- Botão Submit -->
+                                    <button class="w-full mt-space-xs inline-flex items-center justify-center bg-accent-turquoise text-background-deep font-label-md text-label-md py-space-sm rounded font-bold transition-all duration-300 shadow-[0_0_24px_rgba(0,255,239,0.3)] hover:shadow-[0_0_36px_rgba(0,255,239,0.55)] hover:-translate-y-0.5 cursor-pointer" type="submit">
+                                        <span class="material-symbols-outlined text-[18px] mr-space-xs">send</span>
+                                        Enviar meu projeto para análise técnica
+                                    </button>
+                                    <!-- Feedback de envio interativo simulado -->
+                                    <div class="hidden p-space-sm bg-accent-turquoise-dim rounded border border-accent-turquoise/40 text-center font-mono-data text-label-sm text-accent-turquoise" id="form-feedback">✔ PACOTE DE INGESTÃO RECEBIDO COM SUCESSO. REGISTRO PROTOCOLADO NO EDGE. RETORNO EM ATÉ 48 HORAS.</div>
+                                    <div class="flex items-center justify-center gap-space-xs font-label-sm text-[12px] text-text-secondary/80 text-center">
+                                        <span class="material-symbols-outlined text-[16px] text-accent-turquoise">lock</span>
+                                        <span>🔒 Seus dados estão seguros. Retornamos em até 48h úteis (SLA Garantido sob LGPD).</span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="w-full bg-surface-container-lowest py-space-xl mt-space-2xl">
+            <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin-desktop">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl pb-space-xl">
+                    <div class="flex flex-col gap-space-xs md:col-span-2">
+                        <div class="flex items-center gap-space-xs tracking-tight font-headline-sm text-headline-sm text-text-primary"><span class="text-primary font-bold">JABATEC</span><span class="font-label-sm text-label-sm text-accent-turquoise">ADVANCED ARCHITECTURE</span></div>
+                        <p class="font-body-sm text-body-sm text-text-secondary max-w-md">Escritório de inovação deep tech e engenharia de software de alta precisão. Sistemas de governança, infraestruturas resilientes e inteligência artificial aplicada.</p>
+                    </div>
+                    <div class="flex flex-col gap-space-xs">
+                        <span class="font-label-sm text-label-sm text-text-primary uppercase">Telemetria de Rede</span>
+                        <div class="flex flex-col gap-space-xs font-label-sm text-label-sm text-text-secondary">
+                            <div>UPTIME: <span class="text-accent-turquoise font-mono-data text-mono-data">99.998%</span></div>
+                            <div>LATENCY: <span class="text-accent-turquoise font-mono-data text-mono-data">14ms (EDGE-SAO)</span></div>
+                            <div>CIPHER: <span class="text-on-surface font-mono-data text-mono-data">AES-256-GCM</span></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-space-xs">
+                        <span class="font-label-sm text-label-sm text-text-primary uppercase">Compliance & Protocolos</span>
+                        <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-text-secondary"><a class="hover:text-on-surface transition-colors" data-path="seguranca" href="#">Security Whitepaper</a><a class="hover:text-on-surface transition-colors" data-path="privacidade" href="#">Políticas de Privacidade</a><a class="hover:text-on-surface transition-colors" data-path="governanca" href="#">Termos de Governança B2G</a></div>
+                    </div>
+                </div>
+                <div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-text-secondary">
+                    <div>© 2025 JABATEC INNOVATION LABS LTDA. TODOS OS DIREITOS RESERVADOS.</div>
+                    <div class="flex items-center gap-space-sm font-mono-data text-mono-data">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-turquoise"></span><span>COMMIT: <span class="text-text-primary">8f4c21e</span> // SHA-256-VERIFIED</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

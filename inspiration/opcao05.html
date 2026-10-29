@@ -1,0 +1,809 @@
+<!doctype html>
+
+<html class="dark" lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Jabatec // Diagnostic Engine &amp; Consultoria Estratégica</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet" />
+        <!-- Tailwind CDN with forms and container-queries -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "background-deep": "#02040A",
+                            "background-surface": "#0A1128",
+                            "surface-card": "#0A1128",
+                            "surface-container": "#0F1836",
+                            "surface-container-high": "#162044",
+                            "accent-turquoise": "#00FFEF",
+                            "accent-turquoise-dim": "rgba(0, 255, 239, 0.12)",
+                            "brand-navy": "#000080",
+                            "border-subtle": "rgba(148, 163, 184, 0.15)",
+                            "border-subtle-hover": "rgba(0, 255, 239, 0.4)",
+                            "text-primary": "#F8FAFC",
+                            "text-secondary": "#94A3B8",
+                            "text-muted": "#64748B",
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                            display: ["Geist", "sans-serif"],
+                            mono: ['"JetBrains Mono"', "monospace"],
+                        },
+                        boxShadow: {
+                            "glow-sm": "0 0 15px rgba(0, 255, 239, 0.25)",
+                            "glow-md": "0 0 30px rgba(0, 255, 239, 0.35)",
+                            "glow-lg": "0 0 50px rgba(0, 255, 239, 0.25)",
+                            "card-dark": "0 10px 30px -10px rgba(0, 0, 0, 0.7)",
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            body {
+                background-color: #02040a;
+                color: #f8fafc;
+                font-family: "Inter", sans-serif;
+            }
+            .text-glow {
+                text-shadow: 0 0 20px rgba(0, 255, 239, 0.5);
+            }
+            .card-3d-hover {
+                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .card-3d-hover:hover {
+                transform: translateY(-4px) scale(1.01);
+                border-color: rgba(0, 255, 239, 0.45);
+                box-shadow: 0 20px 40px -15px rgba(0, 255, 239, 0.15);
+            }
+        </style>
+    </head>
+    <body class="bg-background-deep text-text-primary antialiased selection:bg-accent-turquoise selection:text-background-deep overflow-x-hidden">
+        <!-- 1. NAVBAR -->
+        <header class="fixed top-0 left-0 w-full z-50 bg-background-deep/80 backdrop-blur-xl border-b border-border-subtle">
+            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <!-- Logo + Engine Status -->
+                <div class="flex items-center gap-4">
+                    <a class="flex items-center gap-2" href="#">
+                        <span class="font-display font-bold text-2xl tracking-tight text-text-primary uppercase">JABATEC</span>
+                        <span class="font-mono text-xs text-accent-turquoise tracking-wider">// DIAGNOSTIC_ENGINE</span>
+                    </a>
+                    <div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-accent-turquoise-dim border border-accent-turquoise/30">
+                        <span class="w-2 h-2 rounded-full bg-accent-turquoise animate-ping"></span>
+                        <span class="font-mono text-[11px] uppercase font-semibold text-accent-turquoise tracking-wider">SISTEMA ONLINE // AGENDA 48H ABERTA</span>
+                    </div>
+                </div>
+                <!-- Quick Nav Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="font-sans text-sm text-text-secondary hover:text-accent-turquoise transition-colors" href="#cases-section">Cases</a>
+                    <a class="font-sans text-sm text-text-secondary hover:text-accent-turquoise transition-colors" href="#metodologia">Metodologia</a>
+                    <a class="font-sans text-sm text-text-secondary hover:text-accent-turquoise transition-colors" href="#time">Time</a>
+                    <a class="font-sans text-sm text-text-secondary hover:text-accent-turquoise transition-colors" href="#diagnostico-form">Diagnóstico</a>
+                </nav>
+                <!-- CTA -->
+                <div class="flex items-center gap-4">
+                    <a class="inline-flex items-center justify-center gap-2 font-mono text-xs font-bold uppercase tracking-wider bg-accent-turquoise text-background-deep px-5 py-2.5 rounded-lg shadow-glow-sm hover:shadow-glow-md hover:bg-white transition-all transform active:scale-95" href="#diagnostico-form">
+                        <span>Iniciar Diagnóstico (48h)</span>
+                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="pt-24 md:pt-28">
+            <!-- 2. HERO SECTION BIPARTIDO -->
+            <section class="relative w-full overflow-hidden pt-6 pb-20 border-b border-border-subtle">
+                <!-- Ambient Glow Orbs -->
+                <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-accent-turquoise/10 blur-[130px] pointer-events-none"></div>
+                <div class="absolute top-1/3 -right-24 w-[30rem] h-[30rem] rounded-full bg-brand-navy/35 blur-[150px] pointer-events-none"></div>
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <!-- Lado Esquerdo: Proposta de Valor -->
+                        <div class="lg:col-span-7 flex flex-col gap-6">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-background-surface border border-accent-turquoise/30 w-fit">
+                                <span class="w-2 h-2 rounded-full bg-accent-turquoise animate-pulse"></span>
+                                <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">DIAGNÓSTICO ESTRATÉGICO // SLA 48H ÚTEIS</span>
+                            </div>
+                            <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] tracking-tight leading-[1.12] text-text-primary">Transformamos ideias que resolvem dores da sociedade em <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-turquoise via-[#60EFFF] to-white text-glow">tecnologia escalável</span>.</h1>
+                            <p class="font-sans text-lg text-text-secondary leading-relaxed max-w-2xl">Fazemos a ponte entre o propósito empreendedor e a realidade. Unimos modelagem de negócios, consultoria estratégica e engenharia de software para criar soluções B2B, B2C e B2G que geram impacto real e atendem às exigências rigorosas de mercado.</p>
+                            <!-- Checkmarks de Valor -->
+                            <div class="flex flex-wrap items-center gap-3 pt-1">
+                                <div class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-background-surface border border-border-subtle">
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[18px]">bolt</span>
+                                    <span class="font-mono text-xs text-text-primary">Retorno em até 48h úteis</span>
+                                </div>
+                                <div class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-background-surface border border-border-subtle">
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[18px]">gavel</span>
+                                    <span class="font-mono text-xs text-text-primary">Conformidade estrita LGPD &amp; B2G</span>
+                                </div>
+                                <div class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-background-surface border border-border-subtle">
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[18px]">verified</span>
+                                    <span class="font-mono text-xs text-text-primary">Avaliação pré-código sem compromisso</span>
+                                </div>
+                            </div>
+                            <!-- CTAs -->
+                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                                <a class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-accent-turquoise text-background-deep font-display font-bold text-sm tracking-wide shadow-glow-sm hover:shadow-glow-md hover:bg-white transition-all" href="#diagnostico-form">
+                                    <span>Solicitar Diagnóstico Estratégico (48h)</span>
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                </a>
+                                <a class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-surface-container border border-border-subtle text-text-primary font-display font-semibold text-sm hover:border-accent-turquoise/40 hover:bg-surface-container-high transition-all" href="#cases-section">
+                                    <span>Ver Cases de Sucesso</span>
+                                    <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Lado Direito: Quick-Intake Engine Widget -->
+                        <div class="lg:col-span-5 w-full">
+                            <div class="bg-background-surface/90 border border-border-subtle rounded-2xl p-6 sm:p-8 shadow-card-dark relative overflow-hidden backdrop-blur-xl">
+                                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-accent-turquoise to-transparent"></div>
+                                <div class="flex items-center justify-between pb-3">
+                                    <div class="flex flex-col">
+                                        <span class="font-mono text-xs text-accent-turquoise font-semibold tracking-wider uppercase">// QUICK-INTAKE ENGINE</span>
+                                        <h3 class="font-display font-bold text-xl text-text-primary">Diagnóstico de Tese</h3>
+                                    </div>
+                                    <div class="w-9 h-9 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 flex items-center justify-center text-accent-turquoise">
+                                        <span class="material-symbols-outlined text-[20px]">analytics</span>
+                                    </div>
+                                </div>
+                                <p class="font-sans text-xs text-text-secondary pb-4">Preencha os parâmetros abaixo para receber a triagem técnica e parecer preliminar em até 48 horas úteis.</p>
+                                <!-- 3 Steps Indicator -->
+                                <div class="grid grid-cols-3 gap-2 mb-5">
+                                    <div class="flex flex-col gap-1">
+                                        <div class="h-1 rounded bg-accent-turquoise"></div>
+                                        <span class="font-mono text-[10px] text-accent-turquoise">01. Enquadramento</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <div class="h-1 rounded bg-slate-700" id="step-bar-2"></div>
+                                        <span class="font-mono text-[10px] text-text-muted" id="step-text-2">02. Criticidade</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <div class="h-1 rounded bg-slate-700" id="step-bar-3"></div>
+                                        <span class="font-mono text-[10px] text-text-muted" id="step-text-3">03. Triagem 48h</span>
+                                    </div>
+                                </div>
+                                <!-- Form Interativo -->
+                                <form class="flex flex-col gap-4" id="hero-quick-form" onsubmit="handleQuickSubmit(event)">
+                                    <div class="flex flex-col gap-1.5">
+                                        <label class="font-mono text-[11px] text-text-secondary uppercase">Modelo de Negócio Alvo</label>
+                                        <div class="grid grid-cols-3 gap-2">
+                                            <button class="model-btn py-2 px-2 rounded-lg bg-accent-turquoise text-background-deep font-mono font-bold text-xs text-center border border-accent-turquoise transition-all" onclick="selectModel(this, 'B2B')" type="button">B2B Core</button>
+                                            <button class="model-btn py-2 px-2 rounded-lg bg-surface-container text-text-secondary font-mono font-semibold text-xs text-center border border-border-subtle hover:border-accent-turquoise/30 transition-all" onclick="selectModel(this, 'B2G')" type="button">B2G Gov</button>
+                                            <button class="model-btn py-2 px-2 rounded-lg bg-surface-container text-text-secondary font-mono font-semibold text-xs text-center border border-border-subtle hover:border-accent-turquoise/30 transition-all" onclick="selectModel(this, 'B2C')" type="button">B2C Scale</button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-1.5">
+                                        <label class="font-mono text-[11px] text-text-secondary uppercase">Principal Desafio Tecnológico</label>
+                                        <select class="w-full bg-background-deep border border-border-subtle text-text-primary rounded-lg px-3.5 py-2.5 font-sans text-xs outline-none focus:border-accent-turquoise transition-all" id="quick-challenge">
+                                            <option value="ia-automacao">IA Especialista &amp; Governança de Algoritmos</option>
+                                            <option value="b2g-compliance">Conformidade Regulatória &amp; Legislação (LGPD/PGRS)</option>
+                                            <option value="concorrencia-escala">Alta Concorrência &amp; Microsserviços Tolerantes a Queda</option>
+                                            <option value="mvp-go-to-market">Estruturação de Produto do Zero (MVP para Escala)</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex flex-col gap-1.5">
+                                        <label class="font-mono text-[11px] text-text-secondary uppercase">E-mail corporativo / WhatsApp</label>
+                                        <input class="w-full bg-background-deep border border-border-subtle text-text-primary placeholder:text-text-muted rounded-lg px-3.5 py-2.5 font-sans text-xs outline-none focus:border-accent-turquoise transition-all" placeholder="contato@empresa.com.br" required="" type="text" />
+                                    </div>
+                                    <button class="w-full py-3 rounded-lg bg-accent-turquoise text-background-deep font-display font-bold text-xs uppercase tracking-wider shadow-glow-sm hover:shadow-glow-md hover:bg-white transition-all flex items-center justify-center gap-2 mt-1" id="quick-submit-btn" type="submit">
+                                        <span>Receber Análise de Arquitetura em 48h</span>
+                                        <span class="material-symbols-outlined text-[16px]">send</span>
+                                    </button>
+                                    <div class="hidden text-center p-2.5 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 text-accent-turquoise font-mono text-xs" id="quick-feedback">✓ Triagem iniciada com sucesso. Comitê Jabatec acionado.</div>
+                                    <div class="flex items-center justify-center gap-1.5 text-text-muted text-[11px] font-mono">
+                                        <span class="material-symbols-outlined text-[14px] text-accent-turquoise">verified_user</span>
+                                        <span>Análise técnica confidencial sob protocolo LGPD.</span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Telemetria & Métricas Rápidas -->
+                    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-background-surface border border-border-subtle rounded-xl p-5 flex flex-col gap-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-2xl font-bold text-accent-turquoise">48h</span>
+                                <span class="w-2 h-2 rounded-full bg-accent-turquoise animate-pulse"></span>
+                            </div>
+                            <span class="font-display font-semibold text-sm text-text-primary">Tempo de Resposta</span>
+                            <span class="font-sans text-xs text-text-secondary">Análise técnica preliminar e triagem de viabilidade do produto.</span>
+                        </div>
+                        <div class="bg-background-surface border border-border-subtle rounded-xl p-5 flex flex-col gap-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-2xl font-bold text-accent-turquoise">100%</span>
+                                <span class="w-2 h-2 rounded-full bg-accent-turquoise"></span>
+                            </div>
+                            <span class="font-display font-semibold text-sm text-text-primary">LGPD &amp; Governança</span>
+                            <span class="font-sans text-xs text-text-secondary">Aderência estrita à LGPD e critérios regulatórios de governo (B2G).</span>
+                        </div>
+                        <div class="bg-background-surface border border-border-subtle rounded-xl p-5 flex flex-col gap-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-2xl font-bold text-accent-turquoise">0 Falhas</span>
+                                <span class="w-2 h-2 rounded-full bg-accent-turquoise"></span>
+                            </div>
+                            <span class="font-display font-semibold text-sm text-text-primary">Em Concorrência</span>
+                            <span class="font-sans text-xs text-text-secondary">Processamento sem perdas em picos massivos e picos de checkout.</span>
+                        </div>
+                        <div class="bg-background-surface border border-border-subtle rounded-xl p-5 flex flex-col gap-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-2xl font-bold text-accent-turquoise">99.98%</span>
+                                <span class="w-2 h-2 rounded-full bg-accent-turquoise"></span>
+                            </div>
+                            <span class="font-display font-semibold text-sm text-text-primary">SLA Operacional</span>
+                            <span class="font-sans text-xs text-text-secondary">Disponibilidade contínua em infraestruturas distribuídas e nuvem.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 3. BARRA DE PROVA SOCIAL IMEDIATA & DEPOIMENTO EXECUTIVO -->
+            <section class="w-full bg-background-surface/50 border-b border-border-subtle py-14">
+                <div class="max-w-7xl mx-auto px-6 flex flex-col gap-8">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">// PROVA SOCIAL &amp; AUTORIDADE EM PRODUÇÃO</span>
+                        </div>
+                        <span class="font-mono text-xs text-text-muted">Ambientes ativos homologados em redes estaduais e municipais</span>
+                    </div>
+                    <!-- Master Card de Prova Social -->
+                    <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 sm:p-10 relative overflow-hidden shadow-card-dark">
+                        <div class="absolute -right-6 -bottom-6 opacity-5 pointer-events-none text-accent-turquoise">
+                            <span class="material-symbols-outlined text-[180px]">format_quote</span>
+                        </div>
+                        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative z-10">
+                            <!-- Citação -->
+                            <div class="flex flex-col gap-4 max-w-3xl">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[18px]">star</span>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[18px]">star</span>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[18px]">star</span>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[18px]">star</span>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[18px]">star</span>
+                                    <span class="font-mono text-xs font-bold text-accent-turquoise ml-2">5.0 // IMPACTO COMPROVADO</span>
+                                </div>
+                                <p class="font-display text-xl sm:text-2xl text-text-primary italic font-medium leading-relaxed">“A Jabatec não apenas codificou nossa ideia; eles estruturaram o negócio, enxergaram oportunidades B2G que não tínhamos e entregaram uma plataforma de IA que está transformando a educação pública.”</p>
+                                <div class="flex items-center gap-3 pt-2">
+                                    <div class="w-11 h-11 rounded-full bg-accent-turquoise-dim border border-accent-turquoise/40 flex items-center justify-center text-accent-turquoise font-display font-bold text-lg">A</div>
+                                    <div class="flex flex-col">
+                                        <span class="font-display font-bold text-sm text-text-primary">Founder &amp; Gestor Executivo</span>
+                                        <span class="font-mono text-xs text-accent-turquoise">AIVI / Akili // Ecossistema euGov Brasil</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Badges de Ecossistemas Conectados -->
+                            <div class="w-full lg:w-80 shrink-0 bg-background-deep/80 border border-border-subtle rounded-xl p-5 flex flex-col gap-3">
+                                <span class="font-mono text-[11px] text-text-muted uppercase tracking-wider">Ecossistemas Conectados</span>
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container border border-border-subtle">
+                                        <span class="font-sans text-xs font-semibold text-text-primary">euGov Brasil</span>
+                                        <span class="font-mono text-[11px] text-accent-turquoise">GovTech Hub</span>
+                                    </div>
+                                    <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container border border-border-subtle">
+                                        <span class="font-sans text-xs font-semibold text-text-primary">SME São Gonçalo (RN)</span>
+                                        <span class="font-mono text-[11px] text-accent-turquoise">Rede Pública</span>
+                                    </div>
+                                    <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container border border-border-subtle">
+                                        <span class="font-sans text-xs font-semibold text-text-primary">PGRS Compliance 2027</span>
+                                        <span class="font-mono text-[11px] text-accent-turquoise">LegalTech</span>
+                                    </div>
+                                    <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container border border-border-subtle">
+                                        <span class="font-sans text-xs font-semibold text-text-primary">PayEvents High-Scale</span>
+                                        <span class="font-mono text-[11px] text-accent-turquoise">Fintech Gate</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 4. PORTFÓLIO DE CASES COM CARDS 3D -->
+            <section class="w-full py-20 border-b border-border-subtle" id="cases-section">
+                <div class="max-w-7xl mx-auto px-6 flex flex-col gap-12">
+                    <div class="flex flex-col gap-2 max-w-3xl">
+                        <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">// PROJETOS VALIDADOS EM AMBIENTES REGULADOS</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-text-primary tracking-tight">Do papel à realidade: cases que geram impacto e solucionam dores complexas.</h2>
+                        <p class="font-sans text-sm sm:text-base text-text-secondary leading-relaxed">Nossa engenharia resolve gargalos regulatórios, educacionais e financeiros críticos, assegurando conformidade de dados e arquitetura de alto rendimento.</p>
+                    </div>
+                    <!-- 3 Cards Principais 3D -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Case 1: AIVI -->
+                        <div class="card-3d-hover bg-background-surface border border-border-subtle rounded-2xl p-6 flex flex-col justify-between shadow-card-dark">
+                            <div class="flex flex-col gap-5">
+                                <div class="h-44 w-full rounded-xl bg-background-deep overflow-hidden relative p-3.5 flex flex-col justify-between border border-border-subtle">
+                                    <img alt="Interface AIVI" class="absolute inset-0 w-full h-full object-cover opacity-40 hover:opacity-50 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJqYfJb8JCC0WEgFmTLfi9cye13ugbHYImv3FOVUeEItCYlH3MJEdO7-zFS6MooMd5JK_LeVNywFgimrkgl_pi4HihWguIleKRUoRlgPK7ts7qX4kPudWMUDdWloUhQ8abOvNdxKHQhw1VkaLIihQNmVHFC3n9jEFQ_CuwTsoueEajp-Xk7A1k5GOEreOGAFngOaBdhQmFCFgwvJ6alqRwAlV98u0ycW-xD-rhCC3vF4dOoZjgfcHc" />
+                                    <div class="relative z-10 flex items-center justify-between">
+                                        <span class="px-2.5 py-1 rounded-md bg-background-deep/90 border border-accent-turquoise/30 font-mono text-[10px] font-bold text-accent-turquoise">EDTECH &amp; IA INCLUSIVA</span>
+                                        <span class="material-symbols-outlined text-accent-turquoise text-[18px]">psychology</span>
+                                    </div>
+                                    <div class="relative z-10 bg-background-deep/90 px-2.5 py-1 rounded border border-border-subtle">
+                                        <span class="font-mono text-xs text-text-primary">AIVI // Sistema Adaptativo</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-display font-bold text-lg text-text-primary">AIVI: IA para Neurodivergência</h3>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Desafio:</strong> Transformar metodologia científica de neurodivergência em ferramenta escalável para redes públicas cumprirem a legislação.</p>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Solução Jabatec:</strong> Plataforma de IA que automatiza levantamento e adapta atividades pedagógicas com confiabilidade técnica.</p>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Resultado:</strong> Sistema em implantação na rede de São Gonçalo do Amarante (RN), integrado ao euGov.</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-border-subtle flex flex-col gap-1.5">
+                                <span class="font-mono text-[10px] text-text-muted uppercase">TELEMETRIA DE IMPACTO</span>
+                                <div class="px-3 py-2 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 flex items-center justify-between">
+                                    <span class="font-mono text-xs font-bold text-accent-turquoise">+15.000 avaliações adaptativas</span>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[16px]">check_circle</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Case 2: PGRS Digital -->
+                        <div class="card-3d-hover bg-background-surface border border-border-subtle rounded-2xl p-6 flex flex-col justify-between shadow-card-dark">
+                            <div class="flex flex-col gap-5">
+                                <div class="h-44 w-full rounded-xl bg-background-deep overflow-hidden relative p-3.5 flex flex-col justify-between border border-border-subtle">
+                                    <img alt="Interface PGRS Digital" class="absolute inset-0 w-full h-full object-cover opacity-40 hover:opacity-50 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWvSXmSqXULPuDMtTgD2UWj1w6qHfzLfjLGFNH3Vu0VvbmbljbhHSXhtqfNV6xw5jdtg9hR7Rh6-95-YzYgoawuaCIeKs_MVQgchmm-0BlsOWiUBamuHmXLZSOeW_BdJ6hOsWx2b9wVihbH9M1uXEdKfBwu9T_0PsghN7g4F__bwTVTVyPdVZ3zMfzZj_Ll3EgoVa1IheaewrZOTM9chgdipalWuyDR6hpjJLsmXnRTRA4ahhoSbmA" />
+                                    <div class="relative z-10 flex items-center justify-between">
+                                        <span class="px-2.5 py-1 rounded-md bg-background-deep/90 border border-accent-turquoise/30 font-mono text-[10px] font-bold text-accent-turquoise">LEGALTECH &amp; COMPLIANCE</span>
+                                        <span class="material-symbols-outlined text-accent-turquoise text-[18px]">verified_user</span>
+                                    </div>
+                                    <div class="relative z-10 bg-background-deep/90 px-2.5 py-1 rounded border border-border-subtle">
+                                        <span class="font-mono text-xs text-text-primary">PGRS Digital // Meta 2027</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-display font-bold text-lg text-text-primary">PGRS Digital: Gestão de Resíduos</h3>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Desafio:</strong> Antecipar a obrigatoriedade legal de 2027 do Plano de Gerenciamento de Resíduos Sólidos para médias e grandes corporações.</p>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Solução Jabatec:</strong> Sistema automatizado com IA especialista na legislação ambiental para validar dados e conectar técnicos habilitados.</p>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Resultado:</strong> Emissão de laudos de compliance automático e redução severa de passivos jurídicos ambientais.</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-border-subtle flex flex-col gap-1.5">
+                                <span class="font-mono text-[10px] text-text-muted uppercase">TELEMETRIA DE IMPACTO</span>
+                                <div class="px-3 py-2 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 flex items-center justify-between">
+                                    <span class="font-mono text-xs font-bold text-accent-turquoise">-82% no tempo de emissão (100% compliance)</span>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[16px]">check_circle</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Case 3: PayEvents -->
+                        <div class="card-3d-hover bg-background-surface border border-border-subtle rounded-2xl p-6 flex flex-col justify-between shadow-card-dark">
+                            <div class="flex flex-col gap-5">
+                                <div class="h-44 w-full rounded-xl bg-background-deep overflow-hidden relative p-3.5 flex flex-col justify-between border border-border-subtle">
+                                    <img alt="Interface PayEvents" class="absolute inset-0 w-full h-full object-cover opacity-40 hover:opacity-50 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtajvgelQ1ri8aKtufcioX47v_3kUeY-akNSnZTH5LHf9kZVH5AKdususoKEFq_Gy7pQbJ9rrkpnJ4K753TKfyMzrgnIDhdSomctcDnGsNuMOSeGCqLdgbpUxnjve_FwR6HILYXqtaQN8R7t-QFMsKCPZ6LJHTMBPJjMQys56PRJy-JVHiSBqEPYMBRdXYet7LnultqmaXgV1NprUnPQn5S2x5aubn0o_yijJjNEHDFIFDhIoeYVA6" />
+                                    <div class="relative z-10 flex items-center justify-between">
+                                        <span class="px-2.5 py-1 rounded-md bg-background-deep/90 border border-accent-turquoise/30 font-mono text-[10px] font-bold text-accent-turquoise">FINTECH &amp; CONCORRÊNCIA</span>
+                                        <span class="material-symbols-outlined text-accent-turquoise text-[18px]">payments</span>
+                                    </div>
+                                    <div class="relative z-10 bg-background-deep/90 px-2.5 py-1 rounded border border-border-subtle">
+                                        <span class="font-mono text-xs text-text-primary">PayEvents // Gateway Desacoplado</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-display font-bold text-lg text-text-primary">PayEvents: Checkout Instantâneo</h3>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Desafio:</strong> Suportar picos massivos de compras simultâneas em maratonas esportivas com zero atrito e zero queda de gateway.</p>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Solução Jabatec:</strong> Fluxo de pagamento desacoplado com microsserviços tolerantes a falhas e filas assíncronas de liquidação.</p>
+                                    <p class="font-sans text-xs text-text-secondary leading-relaxed"><strong class="text-text-primary font-semibold">Resultado:</strong> Liquidação instantânea de grande escala em rush de inscrições sem downtime registrado.</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-border-subtle flex flex-col gap-1.5">
+                                <span class="font-mono text-[10px] text-text-muted uppercase">TELEMETRIA DE IMPACTO</span>
+                                <div class="px-3 py-2 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 flex items-center justify-between">
+                                    <span class="font-mono text-xs font-bold text-accent-turquoise">12.000 req/seg sem downtime</span>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[16px]">check_circle</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mini-grid para Akili, Tatour e Servclub -->
+                    <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 sm:p-8 flex flex-col gap-6">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-xs text-accent-turquoise uppercase tracking-wider font-semibold">// DEMAIS PLATAFORMAS HOMOLOGADAS</span>
+                            <span class="font-mono text-xs text-text-muted">Engenharia Contínua Jabatec</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <div class="p-5 rounded-xl bg-background-deep/70 border border-border-subtle hover:border-accent-turquoise/30 transition-all flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-display font-bold text-base text-text-primary">Akili</h4>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[20px]">cognition</span>
+                                </div>
+                                <span class="font-mono text-xs text-accent-turquoise">Personalização Cognitiva</span>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Algoritmos de adaptação de trilhas pedagógicas com monitoramento em tempo real do nível de proficiência.</p>
+                            </div>
+                            <div class="p-5 rounded-xl bg-background-deep/70 border border-border-subtle hover:border-accent-turquoise/30 transition-all flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-display font-bold text-base text-text-primary">Tatour</h4>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[20px]">explore</span>
+                                </div>
+                                <span class="font-mono text-xs text-accent-turquoise">Turismo Inteligente &amp; Geo</span>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Mapeamento de rotas e geolocalização com distribuição dinâmica de guias e motor de reservas em tempo real.</p>
+                            </div>
+                            <div class="p-5 rounded-xl bg-background-deep/70 border border-border-subtle hover:border-accent-turquoise/30 transition-all flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-display font-bold text-base text-text-primary">Servclub</h4>
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[20px]">corporate_fare</span>
+                                </div>
+                                <span class="font-mono text-xs text-accent-turquoise">Gestão de Convênios Corporativos</span>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Arquitetura de conciliação de benefícios, gestão de dependentes e integração bancária de alto volume.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 5. METODOLOGIA LEAN & TECH STACK -->
+            <section class="w-full bg-background-surface/40 border-b border-border-subtle py-20" id="metodologia">
+                <div class="max-w-7xl mx-auto px-6 flex flex-col gap-14">
+                    <div class="flex flex-col gap-2 max-w-3xl">
+                        <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">// METODOLOGIA LEAN &amp; ARQUITETURA DE VALOR</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-text-primary tracking-tight">Mais que código: entregamos negócios estruturados e prontos para o mercado.</h2>
+                        <p class="font-sans text-sm sm:text-base text-text-secondary leading-relaxed">Na Jabatec, nenhum código é escrito sem que a ideia esteja validada. Atuamos com filosofia Lean e metodologias ágeis para garantir entregas granulares e previsíveis.</p>
+                    </div>
+                    <!-- 4 Core Expertises Bento Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                        <div class="p-6 rounded-2xl bg-surface-card border border-border-subtle flex flex-col justify-between gap-6 card-3d-hover">
+                            <div class="flex flex-col gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 flex items-center justify-center text-accent-turquoise">
+                                    <span class="material-symbols-outlined text-[22px]">architecture</span>
+                                </div>
+                                <span class="font-mono text-[11px] font-bold text-accent-turquoise uppercase">PILAR 01</span>
+                                <h3 class="font-display font-bold text-base text-text-primary">Consultoria Estratégica &amp; Business Plan</h3>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Benchmarking profundo, sessões de Design Thinking e modelagem de viabilidade econômica para operações B2B, B2C e B2G.</p>
+                            </div>
+                            <span class="font-mono text-[11px] text-text-muted">Validação Pré-Código</span>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-surface-card border border-border-subtle flex flex-col justify-between gap-6 card-3d-hover">
+                            <div class="flex flex-col gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 flex items-center justify-center text-accent-turquoise">
+                                    <span class="material-symbols-outlined text-[22px]">terminal</span>
+                                </div>
+                                <span class="font-mono text-[11px] font-bold text-accent-turquoise uppercase">PILAR 02</span>
+                                <h3 class="font-display font-bold text-base text-text-primary">Desenvolvimento Sob Medida</h3>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Construção de APIs robustas, ecossistemas Web e Mobile com foco primário em estabilidade, segurança e performance sob concorrência.</p>
+                            </div>
+                            <span class="font-mono text-[11px] text-text-muted">Engenharia de Alta Performance</span>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-surface-card border border-border-subtle flex flex-col justify-between gap-6 card-3d-hover">
+                            <div class="flex flex-col gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 flex items-center justify-center text-accent-turquoise">
+                                    <span class="material-symbols-outlined text-[22px]">neurology</span>
+                                </div>
+                                <span class="font-mono text-[11px] font-bold text-accent-turquoise uppercase">PILAR 03</span>
+                                <h3 class="font-display font-bold text-base text-text-primary">IA &amp; Automação Especialista</h3>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Inteligência Artificial aplicada a processos decisórios e regulatórios complexos, sem alucinações e com trilhas auditáveis de cálculo.</p>
+                            </div>
+                            <span class="font-mono text-[11px] text-text-muted">Governança Algorítmica</span>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-surface-card border border-border-subtle flex flex-col justify-between gap-6 card-3d-hover">
+                            <div class="flex flex-col gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 flex items-center justify-center text-accent-turquoise">
+                                    <span class="material-symbols-outlined text-[22px]">verified</span>
+                                </div>
+                                <span class="font-mono text-[11px] font-bold text-accent-turquoise uppercase">PILAR 04</span>
+                                <h3 class="font-display font-bold text-base text-text-primary">Homologação, LGPD &amp; Escala</h3>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Adequação rigorosa à LGPD, pipelines de CI/CD automatizadas e homologação facilitada em sistemas de compras públicas.</p>
+                            </div>
+                            <span class="font-mono text-[11px] text-text-muted">Prontidão para o Setor Público</span>
+                        </div>
+                    </div>
+                    <!-- Categorized Tech Stack Console -->
+                    <div class="bg-background-deep border border-border-subtle rounded-2xl p-6 sm:p-8">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-border-subtle gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-accent-turquoise text-[20px]">dns</span>
+                                <span class="font-mono text-xs text-text-primary font-bold uppercase tracking-wider">MATRIZ TECNOLÓGICA PADRONIZADA // PRODUÇÃO</span>
+                            </div>
+                            <span class="font-mono text-xs text-accent-turquoise">Resiliência e Escalabilidade Nativa</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                            <div class="p-4 rounded-xl bg-surface-container border border-border-subtle flex flex-col gap-3">
+                                <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">BACKEND CRÍTICO</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">PHP 8+</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">Laravel</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">Python</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">FastAPI</span>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-surface-container border border-border-subtle flex flex-col gap-3">
+                                <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">FRONTEND &amp; MOBILE</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">TypeScript</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">Next.js</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">React</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">React Native</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">Expo</span>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-surface-container border border-border-subtle flex flex-col gap-3">
+                                <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">INFRA &amp; SEGURANÇA</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">Docker</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">Kubernetes</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">Nginx</span>
+                                    <span class="px-2.5 py-1 rounded bg-background-deep border border-border-subtle font-mono text-xs text-text-primary">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 6. TASK-FORCE MULTIDISCIPLINAR (O TIME) -->
+            <section class="w-full py-20 border-b border-border-subtle" id="time">
+                <div class="max-w-7xl mx-auto px-6 flex flex-col gap-12">
+                    <div class="flex flex-col gap-2 max-w-3xl">
+                        <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">// TASK-FORCE MULTIDISCIPLINAR</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-text-primary tracking-tight">Uma equipe de engenharia e negócios focada no seu projeto.</h2>
+                        <p class="font-sans text-sm sm:text-base text-text-secondary leading-relaxed">Tecnologia, negócios e finanças precisam andar juntos. Nosso time sênior combina visões complementares para garantir que seu projeto seja tecnicamente brilhante, financeiramente viável e estrategicamente sólido.</p>
+                    </div>
+                    <!-- 5 Team Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                        <!-- CEO -->
+                        <div class="bg-surface-card border border-border-subtle rounded-2xl p-5 flex flex-col justify-between gap-5 card-3d-hover">
+                            <div class="flex flex-col gap-3.5">
+                                <div class="w-14 h-14 rounded-full bg-accent-turquoise-dim border border-accent-turquoise/40 flex items-center justify-center text-accent-turquoise shadow-glow-sm">
+                                    <span class="material-symbols-outlined text-[28px]">leaderboard</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base text-text-primary">CEO</h3>
+                                    <span class="font-mono text-xs text-accent-turquoise font-medium">Negócios &amp; Impacto</span>
+                                </div>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Especialista em visão de produto, expansão institucional e parcerias estratégicas B2B/B2G.</p>
+                            </div>
+                            <div class="pt-3 border-t border-border-subtle">
+                                <span class="font-mono text-[10px] text-accent-turquoise uppercase tracking-wider font-semibold block">SUPERPODER:</span>
+                                <span class="font-sans text-xs text-text-primary">Modelagem de Proposta de Valor</span>
+                            </div>
+                        </div>
+                        <!-- GP Ágil -->
+                        <div class="bg-surface-card border border-border-subtle rounded-2xl p-5 flex flex-col justify-between gap-5 card-3d-hover">
+                            <div class="flex flex-col gap-3.5">
+                                <div class="w-14 h-14 rounded-full bg-accent-turquoise-dim border border-accent-turquoise/40 flex items-center justify-center text-accent-turquoise shadow-glow-sm">
+                                    <span class="material-symbols-outlined text-[28px]">checklist_rtl</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base text-text-primary">GP Ágil</h3>
+                                    <span class="font-mono text-xs text-accent-turquoise font-medium">Gestão &amp; LGPD</span>
+                                </div>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Especialista em Gestão Ágil, Projetos B2G regulados e esteiras de conformidade com a LGPD.</p>
+                            </div>
+                            <div class="pt-3 border-t border-border-subtle">
+                                <span class="font-mono text-[10px] text-accent-turquoise uppercase tracking-wider font-semibold block">SUPERPODER:</span>
+                                <span class="font-sans text-xs text-text-primary">Entregas no Prazo &amp; Compliance</span>
+                            </div>
+                        </div>
+                        <!-- CFO -->
+                        <div class="bg-surface-card border border-border-subtle rounded-2xl p-5 flex flex-col justify-between gap-5 card-3d-hover">
+                            <div class="flex flex-col gap-3.5">
+                                <div class="w-14 h-14 rounded-full bg-accent-turquoise-dim border border-accent-turquoise/40 flex items-center justify-center text-accent-turquoise shadow-glow-sm">
+                                    <span class="material-symbols-outlined text-[28px]">account_balance</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base text-text-primary">CFO</h3>
+                                    <span class="font-mono text-xs text-accent-turquoise font-medium">Engenharia Financeira</span>
+                                </div>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Especialista em Estruturação Financeira, cálculo de unit economics e sustentabilidade de margem.</p>
+                            </div>
+                            <div class="pt-3 border-t border-border-subtle">
+                                <span class="font-mono text-[10px] text-accent-turquoise uppercase tracking-wider font-semibold block">SUPERPODER:</span>
+                                <span class="font-sans text-xs text-text-primary">Viabilidade de Margem &amp; ROI</span>
+                            </div>
+                        </div>
+                        <!-- Dev Sênior IA -->
+                        <div class="bg-surface-card border border-border-subtle rounded-2xl p-5 flex flex-col justify-between gap-5 card-3d-hover">
+                            <div class="flex flex-col gap-3.5">
+                                <div class="w-14 h-14 rounded-full bg-accent-turquoise-dim border border-accent-turquoise/40 flex items-center justify-center text-accent-turquoise shadow-glow-sm">
+                                    <span class="material-symbols-outlined text-[28px]">security</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base text-text-primary">Dev Sênior</h3>
+                                    <span class="font-mono text-xs text-accent-turquoise font-medium">IA &amp; Cibersegurança</span>
+                                </div>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Especialista em orquestração de modelos de inteligência artificial e proteção contra vazamentos.</p>
+                            </div>
+                            <div class="pt-3 border-t border-border-subtle">
+                                <span class="font-mono text-[10px] text-accent-turquoise uppercase tracking-wider font-semibold block">SUPERPODER:</span>
+                                <span class="font-sans text-xs text-text-primary">Defesa de Perímetro &amp; Zero Bugs</span>
+                            </div>
+                        </div>
+                        <!-- Arquiteto de Soluções -->
+                        <div class="bg-surface-card border border-border-subtle rounded-2xl p-5 flex flex-col justify-between gap-5 card-3d-hover">
+                            <div class="flex flex-col gap-3.5">
+                                <div class="w-14 h-14 rounded-full bg-accent-turquoise-dim border border-accent-turquoise/40 flex items-center justify-center text-accent-turquoise shadow-glow-sm">
+                                    <span class="material-symbols-outlined text-[28px]">hub</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base text-text-primary">Arquiteto</h3>
+                                    <span class="font-mono text-xs text-accent-turquoise font-medium">Soluções &amp; Dados</span>
+                                </div>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Transforma dores complexas em algoritmos distribuídos e banco de dados de alto rendimento.</p>
+                            </div>
+                            <div class="pt-3 border-t border-border-subtle">
+                                <span class="font-mono text-[10px] text-accent-turquoise uppercase tracking-wider font-semibold block">SUPERPODER:</span>
+                                <span class="font-sans text-xs text-text-primary">Abstração &amp; Escala Massiva</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 7. SEÇÃO DE FECHAMENTO — FORMULÁRIO DE INGESTÃO DE PROJETOS -->
+            <section class="w-full bg-background-surface/30 py-20" id="diagnostico-form">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                        <!-- Lado Esquerdo: Briefing & Garantia -->
+                        <div class="lg:col-span-5 flex flex-col gap-6">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-background-surface border border-accent-turquoise/30 w-fit">
+                                <span class="w-2 h-2 rounded-full bg-accent-turquoise animate-pulse"></span>
+                                <span class="font-mono text-xs font-semibold text-accent-turquoise uppercase tracking-wider">DIAGNÓSTICO TÉCNICO // 48H ÚTEIS</span>
+                            </div>
+                            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-text-primary tracking-tight">Tem uma ideia que pode mudar o mercado ou a sociedade?</h2>
+                            <p class="font-sans text-base text-text-secondary leading-relaxed">Conte-nos brevemente sobre o seu projeto. Nossa equipe de engenheiros e estrategistas irá analisar seu desafio e agendar um diagnóstico técnico e de viabilidade em até 48 horas úteis.</p>
+                            <!-- Selo de Garantia e Sigilo -->
+                            <div class="p-5 rounded-xl bg-surface-card border border-border-subtle flex flex-col gap-2">
+                                <div class="flex items-center gap-2 text-accent-turquoise">
+                                    <span class="material-symbols-outlined text-[20px]">lock</span>
+                                    <span class="font-display font-bold text-sm text-text-primary">Garantia de Sigilo &amp; Conformidade</span>
+                                </div>
+                                <p class="font-sans text-xs text-text-secondary leading-relaxed">Seus dados e tese estão protegidos por sigilo prévio e estrita conformidade com a LGPD (Lei 13.709/2018). Retornamos com análise preliminar em até 48h úteis.</p>
+                            </div>
+                            <!-- Canais Diretos -->
+                            <div class="flex flex-col gap-3 pt-2">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[20px]">mail</span>
+                                    <a class="font-mono text-sm text-text-primary hover:text-accent-turquoise transition-colors" href="mailto:contato@jabatec.com.br">contato@jabatec.com.br</a>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-accent-turquoise text-[20px]">work</span>
+                                    <span class="font-sans text-sm text-text-secondary">LinkedIn: /company/jabatec</span>
+                                </div>
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-turquoise-dim border border-accent-turquoise/30 w-fit mt-1">
+                                    <span class="w-2 h-2 rounded-full bg-accent-turquoise animate-ping"></span>
+                                    <span class="font-mono text-[11px] text-accent-turquoise font-semibold">Vagas limitadas para diagnóstico deste mês</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Lado Direito: Formulário Principal -->
+                        <div class="lg:col-span-7 bg-surface-card border border-border-subtle rounded-2xl p-6 sm:p-10 shadow-card-dark">
+                            <form class="flex flex-col gap-5" id="main-diagnostic-form" onsubmit="handleMainSubmit(event)">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div class="flex flex-col gap-1.5">
+                                        <label class="font-mono text-xs text-text-secondary uppercase">Nome completo / Co-founder *</label>
+                                        <input class="w-full bg-background-deep border border-border-subtle text-text-primary placeholder:text-text-muted rounded-lg px-4 py-3 font-sans text-sm outline-none focus:border-accent-turquoise transition-all" placeholder="Ex: Mariana Costa" required="" type="text" />
+                                    </div>
+                                    <div class="flex flex-col gap-1.5">
+                                        <label class="font-mono text-xs text-text-secondary uppercase">E-mail corporativo / WhatsApp *</label>
+                                        <input class="w-full bg-background-deep border border-border-subtle text-text-primary placeholder:text-text-muted rounded-lg px-4 py-3 font-sans text-sm outline-none focus:border-accent-turquoise transition-all" placeholder="contato@organizacao.com.br" required="" type="text" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <label class="font-mono text-xs text-text-secondary uppercase">Segmento / Enquadramento do Projeto *</label>
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <label class="flex items-center justify-center gap-2 p-3 rounded-lg bg-background-deep border border-border-subtle cursor-pointer hover:border-accent-turquoise/50 transition-all text-center">
+                                            <input checked="" class="accent-accent-turquoise text-accent-turquoise" name="segmento" type="radio" value="B2B" />
+                                            <span class="font-mono text-xs font-semibold text-text-primary">B2B Core</span>
+                                        </label>
+                                        <label class="flex items-center justify-center gap-2 p-3 rounded-lg bg-background-deep border border-border-subtle cursor-pointer hover:border-accent-turquoise/50 transition-all text-center">
+                                            <input class="accent-accent-turquoise text-accent-turquoise" name="segmento" type="radio" value="B2G" />
+                                            <span class="font-mono text-xs font-semibold text-text-primary">B2G Gov</span>
+                                        </label>
+                                        <label class="flex items-center justify-center gap-2 p-3 rounded-lg bg-background-deep border border-border-subtle cursor-pointer hover:border-accent-turquoise/50 transition-all text-center">
+                                            <input class="accent-accent-turquoise text-accent-turquoise" name="segmento" type="radio" value="B2C" />
+                                            <span class="font-mono text-xs font-semibold text-text-primary">B2C Scale</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <label class="font-mono text-xs text-text-secondary uppercase">Qual é a dor que o seu projeto resolve? *</label>
+                                    <textarea class="w-full bg-background-deep border border-border-subtle text-text-primary placeholder:text-text-muted rounded-lg px-4 py-3 font-sans text-sm outline-none focus:border-accent-turquoise transition-all" placeholder="Exemplo: Precisamos automatizar a auditoria de relatórios ambientais exigidos para 2027 com garantia de integridade, ou desenvolver um sistema de checkout com 10.000 requisições simultâneas sem perdas de transação..." required="" rows="4"></textarea>
+                                </div>
+                                <div class="flex items-start gap-2.5 pt-1">
+                                    <input checked="" class="mt-1 accent-accent-turquoise rounded" id="lgpd-consent" required="" type="checkbox" />
+                                    <label class="font-sans text-xs text-text-secondary cursor-pointer leading-relaxed" for="lgpd-consent"> Concordo com o processamento dos dados submetidos exclusivamente para elaboração do diagnóstico técnico preliminar, conforme termos da LGPD (Lei 13.709/2018). </label>
+                                </div>
+                                <button class="w-full py-4 rounded-lg bg-accent-turquoise text-background-deep font-display font-bold text-sm uppercase tracking-wider shadow-glow-sm hover:shadow-glow-md hover:bg-white transition-all flex items-center justify-center gap-2 mt-2" id="main-submit-btn" type="submit">
+                                    <span>🚀 Enviar meu projeto para Diagnóstico Gratuito (48h)</span>
+                                </button>
+                                <div class="hidden text-center p-4 rounded-lg bg-accent-turquoise-dim border border-accent-turquoise/30 text-accent-turquoise font-mono text-sm" id="main-feedback">✓ Proposta encaminhada com sucesso para o comitê técnico. Aguarde nosso parecer em até 48 horas úteis no canal informado.</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- 8. FOOTER INSTITUCIONAL COMPLETO -->
+        <footer class="w-full bg-background-deep border-t border-border-subtle py-14">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col gap-12">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                    <!-- Coluna 1: Sobre -->
+                    <div class="md:col-span-5 flex flex-col gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="font-display font-bold text-2xl tracking-tight text-text-primary uppercase">JABATEC</span>
+                            <span class="font-mono text-xs text-accent-turquoise">// ENTERPRISE AI</span>
+                        </div>
+                        <p class="font-sans text-xs sm:text-sm text-text-secondary leading-relaxed max-w-sm">Arquitetura de inteligência artificial de alta criticidade e engenharia de software para governo e corporações reguladas. Governança rígida e segurança de nível militar.</p>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="w-2 h-2 rounded-full bg-accent-turquoise"></span>
+                            <span class="font-mono text-xs text-text-muted">Soberania de Dados &amp; Ambientes On-Premises / Air-Gapped</span>
+                        </div>
+                    </div>
+                    <!-- Coluna 2: Canais Corporativos -->
+                    <div class="md:col-span-3 flex flex-col gap-3">
+                        <span class="font-mono text-xs font-semibold uppercase tracking-wider text-text-primary">Canais Corporativos</span>
+                        <div class="flex flex-col gap-2">
+                            <a class="font-sans text-xs text-text-secondary hover:text-accent-turquoise transition-colors" href="mailto:contato@jabatec.com.br">contato@jabatec.com.br</a>
+                            <a class="font-sans text-xs text-text-secondary hover:text-accent-turquoise transition-colors" href="#">LinkedIn Corporativo</a>
+                            <span class="font-mono text-xs text-accent-turquoise mt-1">SLA de Triagem: &lt; 48 Horas Úteis</span>
+                        </div>
+                    </div>
+                    <!-- Coluna 3: Governança & Compliance -->
+                    <div class="md:col-span-4 flex flex-col gap-3">
+                        <span class="font-mono text-xs font-semibold uppercase tracking-wider text-text-primary">Governança &amp; Compliance</span>
+                        <p class="font-sans text-xs text-text-secondary leading-relaxed">Operações em conformidade estrita com a LGPD (Lei Geral de Proteção de Dados - Lei 13.709/2018), ISO/IEC 27001 e normas de cibersegurança setoriais B2G/Enterprise.</p>
+                    </div>
+                </div>
+                <!-- Linha Final -->
+                <div class="pt-8 border-t border-border-subtle flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="font-mono text-xs text-text-muted">© 2025 JABATEC TECNOLOGIA DA INFORMAÇÃO S.A. TODOS OS DIREITOS RESERVADOS.</div>
+                    <div class="flex items-center gap-6">
+                        <a class="font-sans text-xs text-text-secondary hover:text-text-primary transition-colors" href="#">Política de Privacidade</a>
+                        <a class="font-sans text-xs text-text-secondary hover:text-text-primary transition-colors" href="#">Termos de Serviço</a>
+                        <a class="font-sans text-xs text-text-secondary hover:text-text-primary transition-colors" href="#">Compliance LGPD</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Scripts Interativos de Conversão -->
+        <script>
+            function selectModel(button, modelName) {
+                document.querySelectorAll(".model-btn").forEach((btn) => {
+                    btn.classList.remove("bg-accent-turquoise", "text-background-deep", "font-bold", "border-accent-turquoise");
+                    btn.classList.add("bg-surface-container", "text-text-secondary", "border-border-subtle");
+                });
+                button.classList.remove("bg-surface-container", "text-text-secondary", "border-border-subtle");
+                button.classList.add("bg-accent-turquoise", "text-background-deep", "font-bold", "border-accent-turquoise");
+            }
+
+            function handleQuickSubmit(e) {
+                e.preventDefault();
+                const btn = document.getElementById("quick-submit-btn");
+                const feedback = document.getElementById("quick-feedback");
+                const stepBar2 = document.getElementById("step-bar-2");
+                const stepBar3 = document.getElementById("step-bar-3");
+                const stepText2 = document.getElementById("step-text-2");
+                const stepText3 = document.getElementById("step-text-3");
+
+                btn.disabled = true;
+                btn.innerHTML = "<span>Processando triagem...</span>";
+
+                setTimeout(() => {
+                    stepBar2.classList.remove("bg-slate-700");
+                    stepBar2.classList.add("bg-accent-turquoise");
+                    stepText2.classList.remove("text-text-muted");
+                    stepText2.classList.add("text-accent-turquoise");
+
+                    stepBar3.classList.remove("bg-slate-700");
+                    stepBar3.classList.add("bg-accent-turquoise");
+                    stepText3.classList.remove("text-text-muted");
+                    stepText3.classList.add("text-accent-turquoise");
+
+                    feedback.classList.remove("hidden");
+                    btn.innerHTML = "<span>Triagem Recebida</span>";
+                }, 600);
+            }
+
+            function handleMainSubmit(e) {
+                e.preventDefault();
+                const btn = document.getElementById("main-submit-btn");
+                const feedback = document.getElementById("main-feedback");
+
+                btn.disabled = true;
+                btn.innerHTML = "<span>Transferência Segura em Andamento...</span>";
+
+                setTimeout(() => {
+                    feedback.classList.remove("hidden");
+                    btn.classList.add("hidden");
+                }, 700);
+            }
+        </script>
+    </body>
+</html>

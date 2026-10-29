@@ -1,0 +1,19 @@
+{
+  "name": "site-jabatec",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "node --env-file=.env ./dist/server/entry.mjs"
+  },
+  "engines": {
+    "node": "18.20.8 || ^20.3.0 || >=22.0.0"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.5.5",
+    "@emailjs/nodejs": "^5.0.2",
+    "astro": "^5.18.2"
+  }
+}

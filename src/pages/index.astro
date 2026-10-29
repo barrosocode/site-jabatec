@@ -1,0 +1,511 @@
+---
+import "../styles/global.css";
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jabatec — Engenharia com diagnóstico</title>
+  <meta name="description" content="Consultoria, engenharia e inteligência artificial para produtos B2B, B2C e B2G. Diagnóstico técnico em até 48 horas úteis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <header class="site">
+    <div class="container nav">
+      <a class="brand" href="#topo"><span class="brand-mark" aria-hidden="true"></span> JABATEC</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+        <span class="sr" style="position:absolute;left:-999px">Abrir menu</span>
+      </button>
+      <nav class="nav-links" id="menu">
+        <a href="#cases">Cases</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#contato">Contato</a>
+        <a class="btn btn-primary" href="#contato">Solicitar diagnóstico</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo">
+    <section class="hero" aria-label="Apresentação">
+      <div class="field" aria-hidden="true"></div>
+      <div class="veil" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <h1>Transformamos ideias que resolvem dores da sociedade em tecnologia escalável.</h1>
+        <p class="lede">Consultoria, engenharia e inteligência artificial para produtos B2B, B2C e B2G. O diagnóstico técnico volta em até 48 horas úteis.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contato">Solicitar diagnóstico</a>
+          <a class="btn btn-ghost" href="#cases">Ver cases</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee-wrap" aria-label="Clientes">
+      <p class="marquee-label">Quem já construiu com a Jabatec</p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <div class="logo-set">
+            <span class="wordmark">Tatour <small>Turismo</small></span>
+            <span class="wordmark">Servclub <small>Parque aquático</small></span>
+            <span class="wordmark">RSSOLTEL <small>Governança tecnológica</small></span>
+            <span class="wordmark">AIVI <small>Educação pública</small></span>
+            <span class="wordmark">PayEvents <small>Inscrições</small></span>
+          </div>
+          <div class="logo-set" aria-hidden="true">
+            <span class="wordmark">Tatour <small>Turismo</small></span>
+            <span class="wordmark">Servclub <small>Parque aquático</small></span>
+            <span class="wordmark">RSSOLTEL <small>Governança tecnológica</small></span>
+            <span class="wordmark">AIVI <small>Educação pública</small></span>
+            <span class="wordmark">PayEvents <small>Inscrições</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cases">
+      <div class="container">
+        <div class="section-head">
+          <div class="copy">
+            <p class="kicker">Portfólio</p>
+            <h2>O que está em produção</h2>
+            <p class="muted">Veja os cases da Jabatec. Cada um saiu de uma dor concreta e virou sistema em operação.</p>
+          </div>
+          <div class="controls">
+            <button class="icon-btn" type="button" id="prev" aria-label="Case anterior">←</button>
+            <button class="icon-btn" type="button" id="next" aria-label="Próximo case">→</button>
+          </div>
+        </div>
+        <div class="squeeze" id="squeeze">
+          <button class="squeeze-card is-active" type="button" data-index="0" aria-pressed="true">
+            <div class="mock has-shot">
+              <div class="shots">
+                <img src="/imagens-projetos/aivi-screenshot-1.png" alt="Prévia da AIVI: triagem de aluno" draggable="false">
+              </div>
+              <span class="mock-name">AIVI · educação</span>
+            </div>
+            <span class="case-inline">IA para adaptar atividades em rede pública de ensino.</span>
+          </button>
+          <button class="squeeze-card" type="button" data-index="1" aria-pressed="false">
+            <div class="mock">
+              <div class="nodes"><span class="node"></span><span class="node"></span><span class="node"></span></div>
+              <div class="bars" style="flex-direction:column"><span class="bar a"></span><span class="bar c"></span></div>
+              <span class="mock-name">PGRS · resíduos</span>
+            </div>
+            <span class="case-inline">Plano de resíduos com trilha alinhada à legislação.</span>
+          </button>
+          <button class="squeeze-card" type="button" data-index="2" aria-pressed="false">
+            <div class="mock has-shot">
+              <div class="shots portrait">
+                <img src="/imagens-projetos/payevents-app-screenshot.jpeg" alt="Prévia do aplicativo PayEvents: evento" draggable="false">
+                <img src="/imagens-projetos/payevents-app-screenshot-2.jpeg" alt="Prévia do aplicativo PayEvents: compras" draggable="false">
+                <img src="/imagens-projetos/payevents-app-screenshot-3.jpeg" alt="Prévia do aplicativo PayEvents: pesquisa de eventos" draggable="false">
+              </div>
+              <span class="mock-name">PayEvents · checkout</span>
+            </div>
+            <span class="case-inline">Pagamento desacoplado para pico de inscrições.</span>
+          </button>
+          <button class="squeeze-card" type="button" data-index="3" aria-pressed="false">
+            <div class="mock has-shot">
+              <div class="shots">
+                <img src="/imagens-projetos/akili-screenshot-1.png" alt="Prévia da plataforma Akili: início do aluno" draggable="false">
+              </div>
+              <span class="mock-name">Akili · escala</span>
+            </div>
+            <span class="case-inline">Reforço escolar personalizado levado à rede pública.</span>
+          </button>
+          <button class="squeeze-card" type="button" data-index="4" aria-pressed="false">
+            <div class="mock has-shot">
+              <div class="shots">
+                <img src="/imagens-projetos/tatour-screenshot-1.png" alt="Prévia do site Tatour" draggable="false">
+              </div>
+              <span class="mock-name">Tatour · passeios</span>
+            </div>
+            <span class="case-inline">E-commerce de passeios com reserva e pagamento.</span>
+          </button>
+          <button class="squeeze-card" type="button" data-index="5" aria-pressed="false">
+            <div class="mock has-shot">
+              <div class="shots">
+                <img src="/imagens-projetos/servclub-screenshot.png" alt="Prévia do site Servclub" draggable="false">
+              </div>
+              <span class="mock-name">Servclub · convênios</span>
+            </div>
+            <span class="case-inline">Painel de sócios, acessos e mensalidades.</span>
+          </button>
+        </div>
+        <div class="squeeze-copy">
+          <div class="squeeze-track" id="copy-track">
+            <article class="case-copy">
+              <h3>AIVI: IA para neurodivergência</h3>
+              <p class="pain">A dor: transformar um método científico em ferramenta que a rede pública consiga operar. A resposta foi uma plataforma que levanta o perfil e adapta a atividade pedagógica.</p>
+              <span class="metric">Implantação em rede pública · RN</span>
+            </article>
+            <article class="case-copy">
+              <h3>PGRS Digital: gestão de resíduos</h3>
+              <p class="pain">A dor: a exigência do plano de resíduos para médias e grandes empresas. O sistema organiza os dados e apoia o técnico habilitado na emissão do laudo.</p>
+              <span class="metric">Preparação para a meta legal de 2027</span>
+            </article>
+            <article class="case-copy">
+              <h3>PayEvents: checkout de inscrições</h3>
+              <p class="pain">A dor: pico de compras simultâneas em eventos, sem fila e sem queda. O fluxo de pagamento foi separado em serviços e filas de liquidação.</p>
+              <span class="metric">Checkout estável em pico de inscrição</span>
+            </article>
+            <article class="case-copy">
+              <h3>Akili: do reforço escolar à rede pública</h3>
+              <p class="pain">A dor: escalar uma metodologia de reforço personalizado, ainda manual e B2C, para redes de ensino. A resposta foi a modelagem do negócio e uma plataforma adaptativa. O sistema entrou na rede de São Gonçalo do Amarante (RN), no ecossistema euGov.</p>
+              <span class="metric">Escala: B2C → B2G</span>
+            </article>
+            <article class="case-copy">
+              <h3>Tatour: venda de passeios</h3>
+              <p class="pain">A dor: digitalizar a venda de passeios, com compra fluida para o turista e gestão para o operador. A resposta foi um e-commerce com catálogo, pagamento e reserva no mesmo fluxo. A operação passou a um único painel, com mais conversão nas vendas online.</p>
+              <span class="metric">Foco: UX e conversão</span>
+            </article>
+            <article class="case-copy">
+              <h3>Servclub: convênios e mensalidades</h3>
+              <p class="pain">A dor: convênios, cadastro de sócios e mensalidades ainda em processo manual. A resposta foi um site com painel de validação de pagamentos e gestão de acessos. O controle financeiro foi 100% automatizado, com menos inadimplência e menos tempo da equipe administrativa.</p>
+              <span class="metric">Automação: fluxo financeiro</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" id="relato">
+      <div class="container">
+        <div class="cross" aria-hidden="true"></div>
+        <p class="kicker">Relato</p>
+        <article class="quote">
+          <figure class="client-mark" aria-hidden="true">AIVI</figure>
+          <div>
+            <blockquote>A Jabatec não apenas codificou a ideia. Estruturou o negócio, enxergou o caminho B2G e entregou uma plataforma de IA para a educação pública.</blockquote>
+            <div class="bio">
+              <div class="bio-mark" aria-hidden="true">A</div>
+              <div>
+                <strong>Founder e gestor executivo</strong>
+                <span>AIVI · São Gonçalo do Amarante (RN)</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="servicos" style="background-color: rgba(10, 17, 40, 0.55);">
+      <div class="container">
+        <div class="section-head">
+          <div class="copy">
+            <p class="kicker">Serviços e stack</p>
+            <h2>Da tese à operação, na mesma esteira.</h2>
+            <p class="muted">Cada etapa carrega a tecnologia que a sustenta. A stack não é um catálogo solto: ela aparece debaixo do trabalho que justifica.</p>
+          </div>
+        </div>
+        <ol class="rail">
+          <li>
+            <span class="idx">01</span>
+            <h3>Consultoria e plano de negócio</h3>
+            <p>Benchmark, desenho da operação e conta de viabilidade. Engenharia só começa com a tese fechada.</p>
+            <p class="legend">Next.js · PostgreSQL</p>
+          </li>
+          <li>
+            <span class="idx">02</span>
+            <h3>Software sob medida</h3>
+            <p>APIs, web e mobile em ciclos curtos, com estabilidade e segurança como critério de pronto.</p>
+            <p class="legend">PHP 8 · Laravel · TypeScript · React · React Native</p>
+          </li>
+          <li>
+            <span class="idx">03</span>
+            <h3>IA e automação</h3>
+            <p>Modelos aplicados à regra de negócio, com registro do cálculo. A IA entra onde o processo já está descrito.</p>
+            <p class="legend">Python · FastAPI</p>
+          </li>
+          <li>
+            <span class="idx">04</span>
+            <h3>LGPD, homologação e escala</h3>
+            <p>Adequação à Lei 13.709/2018, entrega contínua e preparação para compra pública.</p>
+            <p class="legend">Docker · Kubernetes · Nginx · PostgreSQL</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="equipe">
+      <div class="container">
+        <div class="section-head">
+          <div class="copy">
+            <p class="kicker">Equipe</p>
+            <h2>Um grupo de ação focado no seu projeto.</h2>
+            <p class="muted">Negócio, entrega, finanças, engenharia e arquitetura acompanham o mesmo escopo.</p>
+          </div>
+        </div>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="avatar" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V5M4 19h16M8 19v-6M12 19V9M16 19v-4"/></svg>
+            </div>
+            <h3>Diretoria executiva</h3>
+            <p class="specialty">Liderança estratégica</p>
+            <p>Visão de produto, viabilidade do ecossistema e articulação com contas públicas e privadas.</p>
+          </article>
+          <article class="team-card">
+            <div class="avatar" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3>Gestão de projetos</h3>
+            <p class="specialty">Governança e B2G</p>
+            <p>Métodos ágeis, conformidade com a LGPD e comunicação contínua com quem decide o projeto.</p>
+          </article>
+          <article class="team-card">
+            <div class="avatar" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M7 6V4M17 6V4"/></svg>
+            </div>
+            <h3>Diretoria financeira</h3>
+            <p class="specialty">Sustentabilidade fiscal</p>
+            <p>Modelagem de custo, margem e viabilidade econômica antes de prometer escala.</p>
+          </article>
+          <article class="team-card">
+            <div class="avatar" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
+            </div>
+            <h3>Engenharia sênior</h3>
+            <p class="specialty">IA e segurança</p>
+            <p>Pesquisa aplicada em modelos, pipelines de dados e proteção do perímetro do produto.</p>
+          </article>
+          <article class="team-card">
+            <div class="avatar" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="8" cy="18" r="2"/><path d="M8 7.5l8 1.2M7.2 16.2l9.2-6.4M8 16.5l.2-8"/></svg>
+            </div>
+            <h3>Arquitetura de software</h3>
+            <p class="specialty">Soluções e dados</p>
+            <p>Transforma dores complexas em algoritmos, fluxos de dados e estruturas prontas para crescer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato" style="background-color: rgba(10, 17, 40, 0.55);">
+      <div class="container">
+        <div class="contact-card">
+          <p class="kicker">Contato</p>
+          <h2>Tem uma ideia que pode mudar o mercado ou a sociedade?</h2>
+          <p class="muted">Conte a dor em poucas linhas. Retornamos em até 48 horas úteis para marcar o diagnóstico.</p>
+          <p class="channels">contato@jabatec.tec.br · (84) 99601-9094 · Natal, RN</p>
+          <form id="contact-form">
+            <div>
+              <label for="full-name">Nome completo</label>
+              <input id="full-name" name="nome" type="text" autocomplete="off" required placeholder="Seu nome">
+            </div>
+            <div>
+              <label for="corp-email">E-mail corporativo / WhatsApp</label>
+              <input id="corp-email" name="contato" type="text" autocomplete="off" required placeholder="contato@empresa.com.br ou (84) 90000-0000">
+            </div>
+            <div>
+              <label for="project-pain">Qual é a dor que o seu projeto resolve?</label>
+              <textarea id="project-pain" name="dor" rows="4" autocomplete="off" required placeholder="Descreva o problema, quem é afetado e o que precisa mudar."></textarea>
+            </div>
+            <label class="check">
+              <input id="consent" type="checkbox">
+              <span>Autorizo o uso destes dados para retorno sobre o diagnóstico, conforme a Lei 13.709/2018.</span>
+            </label>
+            <div class="captcha-slot">
+              <div class="g-recaptcha" data-sitekey={import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY} data-theme="dark"></div>
+            </div>
+            <p class="form-error" id="form-error" hidden>Marque o consentimento para enviar.</p>
+            <button class="btn btn-primary" type="submit">Enviar meu projeto</button>
+            <p class="form-note">Seus dados não ficam gravados neste navegador. O retorno é em até 48 horas úteis. A verificação antirobô é operada pelo Google, que recebe o IP e a interação com a página e grava o cookie _GRECAPTCHA.</p>
+          </form>
+          <div class="success" id="form-success" hidden>
+            Mensagem enviada. O time retorna em até 48 horas úteis.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>© 2026 Jabatec. Natal, RN.</span>
+      <span>contato@jabatec.tec.br · (84) 99601-9094</span>
+    </div>
+  </footer>
+
+
+  <script is:inline>
+    const menuBtn = document.querySelector(".menu-btn");
+    const menu = document.getElementById("menu");
+    menuBtn.addEventListener("click", () => {
+      const open = menu.classList.toggle("is-open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+    menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      menu.classList.remove("is-open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }));
+
+    const cards = [...document.querySelectorAll(".squeeze-card")];
+    const track = document.getElementById("copy-track");
+    const squeeze = document.getElementById("squeeze");
+    const grows = [8.6, 2.2, 1.28, 0.78, 0.48, 0.3];
+    const motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+    let index = 0;
+    let motionToken = 0;
+    function layout(active) {
+      const total = cards.length;
+      cards.forEach((card, i) => {
+        const slot = (i - active + total) % total;
+        const grow = grows[slot] ?? 0.3;
+        const hover = slot === 0 ? grow : Math.min(Math.max(grow * 2.25, 1.3), 3.4);
+        card.style.setProperty("--slot", String(slot));
+        card.style.setProperty("--grow", String(grow));
+        card.style.setProperty("--grow-hover", String(hover));
+        const on = i === active;
+        card.classList.toggle("is-active", on);
+        card.setAttribute("aria-pressed", String(on));
+      });
+    }
+    function releaseMotion() {
+      cards.forEach((card) => {
+        card.style.position = "";
+        card.style.left = "";
+        card.style.top = "";
+        card.style.height = "";
+        card.style.width = "";
+        card.style.flex = "";
+        card.style.transform = "";
+        card.style.transition = "";
+        card.style.zIndex = "";
+      });
+      squeeze.style.height = "";
+    }
+    function show(next) {
+      const total = cards.length;
+      const target = (next + total) % total;
+      if (target === index) return;
+      const stacked = window.matchMedia("(max-width: 760px)").matches;
+      if (!motionOk || stacked) {
+        index = target;
+        layout(index);
+        track.style.transform = "translateX(" + (-index * 100) + "%)";
+        return;
+      }
+      const run = ++motionToken;
+      const first = cards.map((card) => card.getBoundingClientRect());
+      const hostLeft = squeeze.getBoundingClientRect().left;
+      index = target;
+      layout(index);
+      const gap = 10;
+      const sum = grows.slice(0, total).reduce((acc, value) => acc + value, 0);
+      const inner = squeeze.clientWidth - gap * (total - 1);
+      const targets = [];
+      let cursor = 0;
+      for (let slot = 0; slot < total; slot += 1) {
+        const width = inner * ((grows[slot] ?? 0.3) / sum);
+        targets.push({ x: cursor, w: width });
+        cursor += width + gap;
+      }
+      squeeze.style.height = squeeze.offsetHeight + "px";
+      cards.forEach((card, i) => {
+        const fromX = first[i].left - hostLeft;
+        card.style.position = "absolute";
+        card.style.left = "0";
+        card.style.top = "0";
+        card.style.height = "100%";
+        card.style.flex = "none";
+        card.style.transition = "none";
+        card.style.width = first[i].width + "px";
+        card.style.transform = "translateX(" + fromX + "px)";
+        card.style.zIndex = "1";
+      });
+      squeeze.offsetWidth;
+      requestAnimationFrame(() => {
+        if (run !== motionToken) return;
+        cards.forEach((card, i) => {
+          const slot = (i - index + total) % total;
+          card.style.transition = "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), width 0.7s cubic-bezier(0.22, 1, 0.36, 1)";
+          card.style.width = targets[slot].w + "px";
+          card.style.transform = "translateX(" + targets[slot].x + "px)";
+          card.style.zIndex = slot === 0 ? "3" : "1";
+        });
+      });
+      track.style.transform = "translateX(" + (-index * 100) + "%)";
+      window.setTimeout(() => {
+        if (run === motionToken) releaseMotion();
+      }, 760);
+    }
+    layout(0);
+    document.getElementById("prev").addEventListener("click", () => show(index - 1));
+    document.getElementById("next").addEventListener("click", () => show(index + 1));
+    cards.forEach((card) => card.addEventListener("click", () => show(Number(card.dataset.index))));
+
+    const ESPERA_MS = 60_000;
+    const CHAVE = "jabatec_contato_em";
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const error = document.getElementById("form-error");
+      const button = form.querySelector("button[type='submit']");
+
+      if (!document.getElementById("consent").checked) {
+        error.textContent = "Marque o consentimento para enviar.";
+        error.hidden = false;
+        return;
+      }
+
+      const ultimo = Number(sessionStorage.getItem(CHAVE) || 0);
+      if (Date.now() - ultimo < ESPERA_MS) {
+        error.textContent = "Aguarde um minuto para enviar de novo.";
+        error.hidden = false;
+        return;
+      }
+
+      let recaptcha = "";
+      try {
+        recaptcha = window.grecaptcha ? grecaptcha.getResponse() : "";
+      } catch {
+        recaptcha = "";
+      }
+      if (!recaptcha) {
+        error.textContent = "Marque a caixa de verificação antes de enviar.";
+        error.hidden = false;
+        return;
+      }
+
+      error.hidden = true;
+      button.disabled = true;
+
+      try {
+        const response = await fetch("/api/contato", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nome: document.getElementById("full-name").value.trim(),
+            contato: document.getElementById("corp-email").value.trim(),
+            dor: document.getElementById("project-pain").value.trim(),
+            consentimento: true,
+            recaptcha,
+          }),
+        });
+        const payload = await response.json();
+        if (!response.ok || payload.error_code) {
+          const falha = new Error(payload.message);
+          falha.known = true;
+          throw falha;
+        }
+        sessionStorage.setItem(CHAVE, String(Date.now()));
+        form.hidden = true;
+        document.getElementById("form-success").hidden = false;
+      } catch (err) {
+        if (window.grecaptcha) grecaptcha.reset();
+        error.textContent = err.known && err.message
+          ? err.message
+          : "Não foi possível enviar. Escreva para contato@jabatec.tec.br.";
+        error.hidden = false;
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
