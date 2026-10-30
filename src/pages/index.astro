@@ -7,6 +7,7 @@ import "../styles/global.css";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jabatec — Engenharia com diagnóstico</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
   <meta name="description" content="Consultoria, engenharia e inteligência artificial para produtos B2B, B2C e B2G. Diagnóstico técnico em até 48 horas úteis.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@ import "../styles/global.css";
 <body>
   <header class="site">
     <div class="container nav">
-      <a class="brand" href="#topo"><span class="brand-mark" aria-hidden="true"></span> JABATEC</a>
+      <a class="brand" href="#topo"><img src="/logo.png" alt="Jabatec" width="144" height="42"></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
         <span></span><span></span><span></span>
         <span class="sr" style="position:absolute;left:-999px">Abrir menu</span>
@@ -327,6 +328,7 @@ import "../styles/global.css";
 
   <footer>
     <div class="container foot">
+      <img class="foot-logo" src="/logo.png" alt="Jabatec" width="112" height="33">
       <span>© 2026 Jabatec. Natal, RN.</span>
       <span>contato@jabatec.tec.br · (84) 99601-9094</span>
     </div>
@@ -392,17 +394,25 @@ import "../styles/global.css";
         return;
       }
       const run = ++motionToken;
+      const pointerInside = squeeze.matches(":hover");
       const first = cards.map((card) => card.getBoundingClientRect());
       const hostLeft = squeeze.getBoundingClientRect().left;
+      if (pointerInside) squeeze.classList.add("is-locked");
       index = target;
       layout(index);
       const gap = 10;
       const sum = grows.slice(0, total).reduce((acc, value) => acc + value, 0);
-      const inner = squeeze.clientWidth - gap * (total - 1);
+      const boxStyle = getComputedStyle(cards[0]);
+      const box =
+        parseFloat(boxStyle.paddingLeft) +
+        parseFloat(boxStyle.paddingRight) +
+        parseFloat(boxStyle.borderLeftWidth) +
+        parseFloat(boxStyle.borderRightWidth);
+      const inner = squeeze.clientWidth - gap * (total - 1) - box * total;
       const targets = [];
       let cursor = 0;
       for (let slot = 0; slot < total; slot += 1) {
-        const width = inner * ((grows[slot] ?? 0.3) / sum);
+        const width = box + inner * ((grows[slot] ?? 0.3) / sum);
         targets.push({ x: cursor, w: width });
         cursor += width + gap;
       }
@@ -436,6 +446,9 @@ import "../styles/global.css";
       }, 760);
     }
     layout(0);
+    squeeze.addEventListener("pointerleave", () => {
+      squeeze.classList.remove("is-locked");
+    });
     document.getElementById("prev").addEventListener("click", () => show(index - 1));
     document.getElementById("next").addEventListener("click", () => show(index + 1));
     cards.forEach((card) => card.addEventListener("click", () => show(Number(card.dataset.index))));

@@ -89,9 +89,8 @@
       justify-content: space-between;
       gap: 24px;
     }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; letter-spacing: 0.08em; }
-    .brand-mark { width: 10px; height: 10px; background: var(--accent); border-radius: 2px; transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease); }
-    .brand:hover .brand-mark { box-shadow: 0 0 12px var(--accent); transform: scale(1.15); }
+    .brand { display: flex; align-items: center; text-decoration: none; }
+    .brand img { height: 42px; width: auto; display: block; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.95rem; transition: color 0.25s var(--ease); }
     .nav-links a:hover { color: var(--accent); }
@@ -196,10 +195,12 @@
     }
     @media (min-width: 761px) {
       .squeeze-card:not(.is-active):hover {
-        flex-grow: var(--grow-hover);
         border-color: rgba(0, 255, 239, 0.5);
       }
-      .squeeze:has(.squeeze-card:not(.is-active):hover) .squeeze-card.is-active {
+      .squeeze:not(.is-locked) .squeeze-card:not(.is-active):hover {
+        flex-grow: var(--grow-hover);
+      }
+      .squeeze:not(.is-locked):has(.squeeze-card:not(.is-active):hover) .squeeze-card.is-active {
         flex-grow: calc(var(--grow) * 0.84);
       }
     }
@@ -447,7 +448,8 @@
       color: var(--muted);
       font-size: 0.9rem;
     }
-    .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .foot-logo { height: 32px; width: auto; display: block; }
     footer a { color: var(--muted); }
 
     .quote {
