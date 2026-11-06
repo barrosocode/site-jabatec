@@ -150,7 +150,7 @@
       margin-bottom: 18px;
     }
     .marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-    .marquee-track { display: flex; width: max-content; animation: scroll-x 28s linear infinite; }
+    .marquee-track { display: flex; width: max-content; animation: scroll-x 42s linear infinite; }
     .marquee:hover .marquee-track { animation-play-state: paused; }
     .logo-set { display: flex; align-items: center; gap: 64px; padding-right: 64px; }
     .wordmark {
@@ -189,6 +189,7 @@
     .squeeze-card:nth-child(4) { --grow: 0.78; --slot: 3; --grow-hover: 1.8; }
     .squeeze-card:nth-child(5) { --grow: 0.48; --slot: 4; --grow-hover: 1.4; }
     .squeeze-card:nth-child(6) { --grow: 0.3; --slot: 5; --grow-hover: 1.25; }
+    .squeeze-card:nth-child(7) { --grow: 0.2; --slot: 6; --grow-hover: 1.3; }
     .squeeze-card.is-active {
       border-color: rgba(0, 255, 239, 0.45);
       box-shadow: 0 0 24px rgba(0, 255, 239, 0.1);
@@ -378,29 +379,29 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 20px;
+      padding: 0 0 20px;
       min-height: 280px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      overflow: hidden;
       transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
     }
     .team-card:hover { border-color: rgba(0, 255, 239, 0.45); box-shadow: 0 0 24px rgba(0, 255, 239, 0.12); transform: translateY(-4px); }
-    .avatar { transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease); }
-    .team-card:hover .avatar { transform: scale(1.08); box-shadow: 0 0 16px rgba(0, 255, 239, 0.22); }
-    .avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 255, 239, 0.4);
-      background: var(--accent-dim);
-      display: grid;
-      place-items: center;
-      color: var(--accent);
+    .team-photo {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      transition: transform 0.45s var(--ease);
     }
-    .team-card h3 { font-size: 1rem; }
-    .specialty { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); }
-    .team-card p { color: var(--muted); font-size: 0.9rem; }
+    .team-photo.square { object-position: center; }
+    .team-card:hover .team-photo { transform: scale(1.06); }
+    .team-card h3 { font-size: 1rem; padding: 6px 16px 0; }
+    .specialty { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); padding: 0 16px; }
+    .team-card p { color: var(--muted); font-size: 0.9rem; padding: 0 16px; }
     .initials {
       width: 52px;
       height: 52px;
